@@ -1,0 +1,26 @@
+
+<h1>
+  <%= link_to 'Create Frameset', new_admin_frameset_path, class: 'btn btn-primary pull-right' %>
+  Framesets
+</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @framesets.each do |frameset| %>
+      <tr>
+        <td><%= frameset.name %></td>
+        <td align="right">
+          <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_admin_frameset_path(frameset) %>
+          <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, admin_frameset_path(frameset), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

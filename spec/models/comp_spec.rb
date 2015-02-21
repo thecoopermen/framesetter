@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Comp, type: :model do
 
   describe '#landscape?' do
-
     it 'is false when a comp is portrait' do
       expect(create(:comp, portrait: true)).to_not be_landscape
     end
