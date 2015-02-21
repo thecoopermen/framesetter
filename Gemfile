@@ -5,6 +5,8 @@ gem 'pg', '~> 0.18.1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'paperclip', '~> 4.2'
+gem 'fog', '~> 1.28'
+
 # gem 'jbuilder', '~> 2.0'
 
 gem 'sass-rails', '~> 5.0'

@@ -42,6 +42,6 @@ class Admin::FramesetsController < Admin::ApplicationController
 private
 
   def frameset_params
-    params.require(:frameset).permit(:name)
+    params.require(:frameset).permit(:name, :icon)
   end
 end
