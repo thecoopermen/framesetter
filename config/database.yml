@@ -1,0 +1,11 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: framesetter_development
+
+test:
+  <<: *default
+  database: framesetter_test
