@@ -6,7 +6,7 @@ $l-width: 105rem;
 $l-min-width: 80rem;
 $l-gutter: $space*3;
 $color-accent: #3497db;
-$color-highlight: #efff91;
+$color-highlight: rgba($color-accent, 0.15);
 $color-link: $color-accent;
 $color-type: #290733;
 $color-type-light: #a1989d;

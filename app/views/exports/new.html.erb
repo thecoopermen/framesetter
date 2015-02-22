@@ -3,8 +3,10 @@
     <div class="pg-export">
 
       <ul class="pg-export-comps" ng-cloak>
-        <li class="pg-export-comp" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
-          <img ng-src="{{comp.image}}" alt="">
+        <li class="pg-export-comp-wrap" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
+          <div class="pg-export-comp">
+            <img ng-src="{{comp.image}}" alt="">
+          </div>
         </li>
       </ul>
 
@@ -19,8 +21,8 @@
               <li ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
                 <div ng-class="{'': frameset.selected}">
                   <div class="mod-frame-set">
-                    <img ng-src="{{frameset.icon}}" alt="">
-                    <span class="mod-frame-set-name">{{frameset.name}}</span>
+                    <div class="mod-frame-set-img-wrap"><img ng-src="{{frameset.icon}}" alt=""></div>
+                    <div class="mod-frame-set-name">{{frameset.name}}</div>
                   </div>
                 </div>
               </li>
@@ -39,6 +41,7 @@
       </div>
 
       <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
+        <h5 class="pg-export-preview-help-text">Drag your comp to choose its position</h5>
         <div class="pg-export-preview">
           <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
             <img ng-src="{{selectedComp.image}}" alt="">
@@ -48,6 +51,7 @@
             <img ng-src="{{selectedFrame.image}}" image-load="updateFrameRatio($event)" alt="">
           </div>
 
+          <a class="ui-btn">Add To Set</a>
           <a class="ui-btn">Download X Framed Comps</a>
         </div>
       </div>

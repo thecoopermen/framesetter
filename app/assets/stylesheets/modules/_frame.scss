@@ -1,13 +1,9 @@
-.mod-frame-set {
-  position: relative;
-  height: 20rem;
-  padding-bottom: $space*2;
+.mod-frame-set-img-wrap {
+  padding: 0 $space*3;
 }
 
 .mod-frame-set-name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin-top: $space;
 }
 
 .mod-frame-li {

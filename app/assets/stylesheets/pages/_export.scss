@@ -9,31 +9,34 @@
 .pg-export-comps,
 .pg-export-frames {
   float: left;
-  position: absolute;
 }
 
 .pg-export-comps {
   width: $pg-export-comps-width;
   border-right: $border-light;
-  left: 0;
-  top: 0;
 }
 
 .pg-export-frames {
   width: $pg-export-frames-width;
-  left: $pg-export-comps-width;
-  top: 0;
+
+  img {
+    max-height: 100%;
+  }
 }
 
-.pg-export-comp {
+.pg-export-comp-wrap {
   padding: $space*2;
   border-bottom: $border-light;
-  height: 11rem;
-  overflow: hidden;
+  @include border-top-left-radius($ui-border-radius);
 
   &:last-child {
     border-bottom: 0;
   }
+}
+
+.pg-export-comp {
+  max-height: 20rem;
+  overflow: hidden;
 }
 
 .pg-export-preview-wrap {
@@ -41,7 +44,7 @@
   @include border-top-right-radius($ui-border-radius);
   @include border-bottom-right-radius($ui-border-radius);
   margin-left: $pg-export-frames-width + $pg-export-comps-width;
-  padding: $space*8;
+  padding: $space*4 $space*8;
   border-left: $border;
 
   &:before {
@@ -55,15 +58,21 @@
   }
 }
 
+.pg-export-preview-help-text {
+  text-align: center;
+  margin-bottom: $space*4;
+}
+
+
 .pg-export-preview {
   position: relative;
 }
 
 .pg-export-frames-dropdown-wrap,
 .pg-export-frames-dropdown {
-  background-color: $color-grey-dark;
-  color: $color-white;
+  background-color: $color-white;
   padding: $space*2;
+  border-bottom: $border;
 }
 
 .pg-export-preview-frame {
