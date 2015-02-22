@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   get '/admin', to: redirect('/admin/framesets')
   namespace :admin do
-    resources :framesets
-    resources :frames
+    resources :framesets do
+      resources :frames
+    end
   end
 
   root to: 'welcome#index'

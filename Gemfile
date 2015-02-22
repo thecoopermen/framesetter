@@ -6,6 +6,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'paperclip', '~> 4.2'
 gem 'fog', '~> 1.28'
+gem 'rmagick', '~> 2.13'
 
 # gem 'jbuilder', '~> 2.0'
 

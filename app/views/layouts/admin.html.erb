@@ -32,7 +32,7 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <% current_controller = controller.class.to_s.split('::').last.gsub('Controller', '').downcase.to_sym %>
-          <% [ :framesets, :frames ].each do |section| %>
+          <% [ :framesets ].each do |section| %>
             <%= content_tag :li, class: (current_controller == section ? 'active' : nil) do %>
               <%= link_to section.to_s.capitalize, send(:"admin_#{section}_path") %>
             <% end %>

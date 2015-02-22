@@ -233,6 +233,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.4.2)
+    rmagick (2.13.4)
     rspec-core (3.2.0)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
@@ -306,6 +307,7 @@ DEPENDENCIES
   pg (~> 0.18.1)
   pry-rails
   rails (= 4.2.0)
+  rmagick (~> 2.13)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   spring
