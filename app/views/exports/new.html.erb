@@ -40,13 +40,14 @@
 
       <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
         <div class="pg-export-preview">
-          <div class="pg-export-preview-comp-wrap">
-            <img ng-src="{{selectedComp.image}}" alt="">
+          <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
+            <img ng-src="{{selectedComp.image}}" alt="" ng-style="compStyle()">
           </div>
 
           <div class="pg-export-preview-frame">
-            <img ng-src="{{selectedFrame.image}}" alt="">
+            <img ng-src="{{selectedFrame.image}}" image-load="updateFrameRatio($event)" alt="">
           </div>
+
           <a class="ui-btn-large">Download X Framed Comps</a>
         </div>
       </div>

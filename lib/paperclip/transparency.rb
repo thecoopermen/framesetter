@@ -16,8 +16,8 @@ class Paperclip::Transparency < Paperclip::Processor
     attachment.instance.assign_attributes(
       left: biggest[0][0],
       top: biggest[0][1],
-      width: biggest[1][0] - biggest[0][0],
-      height: biggest[1][1] - biggest[0][1]
+      width: biggest[1][0] - biggest[0][0] + 1,
+      height: biggest[1][1] - biggest[0][1] + 1
     )
 
     File.new(@file.path)

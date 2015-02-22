@@ -13,6 +13,7 @@
 //
 //= require_self
 //= require_tree ./controllers
+//= require_tree ./directives
 
 angular.module('app', ['blueimp.fileupload']).config(function($httpProvider) {
   $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-Token';

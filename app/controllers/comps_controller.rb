@@ -1,7 +1,7 @@
 class CompsController < ApplicationController
 
   def index
-    @comps = Comp.all
+    @comps = Comp.order(created_at: :desc)
   end
 
   def new
