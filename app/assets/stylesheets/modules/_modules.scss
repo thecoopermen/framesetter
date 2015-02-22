@@ -1,9 +1,13 @@
 .mod-white {
   background-color: $color-white;
   @include border-radius($ui-border-radius*2);
-  padding: $space*3;
-  margin-bottom: $space*3;
-  border: $border-style rgba($color-grey-med, 0.35);
+  padding: $l-gutter;
+  margin-bottom: $l-gutter;
+}
+
+.mod-white-sidebar {
+  @extend .mod-white;
+  padding: $space 0;
 }
 
 .mod-progress-bar {
@@ -19,4 +23,41 @@
   left: 0;
   top: 0;
   height: 100%;
+}
+
+.mod-highlighted {
+  background-color: $color-highlight;
+}
+
+.mod-frame-set {
+  position: relative;
+  height: 20rem;
+  padding-bottom: $space*2;
+}
+
+.mod-frame-set-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.mod-frame-li {
+  padding: 0 $l-gutter;
+  height: $space*8;
+  border-bottom: $border-style rgba($color-black, 0.1);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  img {
+    max-height: $space*6;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.mod-frame-li-name {
+  display: inline-block;
+  vertical-align: middle;
 }

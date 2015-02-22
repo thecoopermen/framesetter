@@ -1,13 +1,19 @@
 $space: 0.8rem;
+
+$g-header-height: $space*9;
+
 $l-width: 95rem;
-$color-accent: #ed40a2;
+$l-gutter: $space*3;
+$color-accent: #691bd7;
+$color-highlight: #e7ff61;
 $color-link: $color-accent;
 $color-type: #290733;
 $color-white: #fff;
-$color-grey-light: #ebe6ea;
+$color-grey-light: #e0e0da;
 $color-grey-med: #998294;
+$color-black: #000;
 
-$ui-border-radius: 0.2rem;
+$ui-border-radius: 0.5rem;
 
 $border-style: 0.1rem solid;
 
@@ -16,10 +22,10 @@ $type-font-family: "museo-sans-rounded", "helvetica";
 $type-sizes: (
   xsmall: (9, 1.5),
   small:  (14, 1.5),
-  body:   (18, 1.55),
+  body:   (16, 1.55),
   large:  (21,  1.2),
   xlarge: (24,  1.3),
-  huge:   (30, 1.1)
+  huge:   (28, 1.1)
 );
 
 $pg-new-comps-img-width: 20%;

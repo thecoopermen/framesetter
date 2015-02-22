@@ -3,3 +3,25 @@
   margin: 0 auto;
 }
 
+.l-main {
+  width: 100/3*2%;
+  float: left;
+  padding-right: $l-gutter;
+}
+
+.l-sidebar {
+  float: left;
+  width: 100/3*1%;
+  padding: 0.1rem 0;
+  padding-left: $l-gutter;
+}
+
+.l-tiles-wrap {
+  margin-left: -#{$l-gutter};
+}
+
+.l-tiles-2 {
+  width: 50%;
+  float: left;
+  padding-left: $l-gutter;
+}

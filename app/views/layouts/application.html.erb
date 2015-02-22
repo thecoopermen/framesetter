@@ -17,21 +17,20 @@
       <nav class="g-header-nav">
         <ul>
           <li>
-            <%= link_to 'New Comp', new_comp_path, class: 'ui-btn' %>
+            <%= link_to 'New Comp', new_comp_path, class: 'ui-btn-stroked' %>
           </li><li class="mod-dropdown-trigger g-header-user">
             <%= image_tag('headshot.png', class: 'g-header-nav-avatar') %>
-            <i class="icon-chevron-down">
-              <nav class="mod-dropdown">
-                <ul>
-                  <li>
-                  <a href="">Your Comps</a>
-                  </li>
-                  <li>
-                  <a href="">Your Exports</a>
-                  </li>
-                </ul>
-              </nav>
-            </i>
+            <i class="icon-chevron-down"></i>
+            <nav class="mod-dropdown">
+              <ul>
+                <li>
+                <a href="">Your Comps</a>
+                </li>
+                <li>
+                <a href="">Your Exports</a>
+                </li>
+              </ul>
+            </nav>
           </li>
         </ul>
       </nav>
