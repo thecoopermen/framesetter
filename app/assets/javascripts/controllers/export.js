@@ -37,21 +37,14 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     $scope.frameRatio = 524 / frame.width;
   }
 
-  $scope.compStyle = function() {
-    if (!$scope.selectedFrame || !$scope.frameRatio) return {};
-
-    return {
-      marginTop: Math.floor($scope.selectedFrame.top * $scope.frameRatio),
-      marginLeft: Math.floor($scope.selectedFrame.left * $scope.frameRatio),
-      width: Math.round($scope.selectedFrame.width * $scope.frameRatio) + 1
-    };
-  }
-
   $scope.compWrapperStyle = function() {
     if (!$scope.selectedFrame || !$scope.frameRatio) return {};
 
     return {
-      height: Math.round(($scope.selectedFrame.height + $scope.selectedFrame.top) * $scope.frameRatio) + 1
+      left: Math.floor($scope.selectedFrame.left * $scope.frameRatio),
+      top: Math.floor($scope.selectedFrame.top * $scope.frameRatio),
+      height: Math.round($scope.selectedFrame.height * $scope.frameRatio) + 1,
+      width: Math.round($scope.selectedFrame.width * $scope.frameRatio) + 1
     };
   }
 
