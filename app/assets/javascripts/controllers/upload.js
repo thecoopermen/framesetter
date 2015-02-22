@@ -12,13 +12,17 @@ angular.module('app').controller('UploadController', function($scope, $element, 
     file.hidden = true
   }
 
-  $scope.readyToFrame = function() {
+  $scope.readyToExport = function() {
     if ($scope.queue.length == 0) return false;
 
     var incomplete = $filter('filter')($scope.queue, function(file, i) {
       return file.hidden || file.$state() != "resolved"
     });
     return incomplete.length == 0;
+  }
+
+  $scope.guardExport = function($event) {
+    if (!$scope.readyToExport()) $event.preventDefault();
   }
 
   $scope.$on('fileuploadadd', function($scope, file) {

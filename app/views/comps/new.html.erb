@@ -6,7 +6,7 @@
       <%= f.file_field :image, multiple: true, style: 'display: none;' %>
       <div class="ui-btn-set-left">
         <a class="ui-btn-large ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
-        <a class="ui-btn-large" ng-disabled="!readyToFrame()">Get Framing!</a>
+        <%= link_to 'Get Framing!', new_export_path, class: 'ui-btn-large', :'ng-class' => '{disabled: !readyToExport()}', :'ng-click' => 'guardExport($event)' %>
       </div>
     <% end %>
   </div>
