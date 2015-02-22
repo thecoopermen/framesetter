@@ -16,18 +16,13 @@
       <a href="" class="g-header-logo">FrameSetter</a>
       <nav class="g-header-nav">
         <ul>
-          <li>
-            <%= link_to 'New Comp', new_comp_path, class: 'ui-btn' %>
-          </li><li class="mod-dropdown-trigger g-header-user">
+          <li class="mod-dropdown-trigger g-header-user">
             <%= image_tag('headshot.png', class: 'g-header-nav-avatar') %>
             <i class="icon-chevron-down"></i>
             <nav class="mod-dropdown">
               <ul>
                 <li>
-                <a href="">Your Comps</a>
-                </li>
-                <li>
-                <a href="">Your Exports</a>
+                <a href="">Edit Profile</a>
                 </li>
               </ul>
             </nav>
@@ -36,6 +31,13 @@
       </nav>
     </div>
   </header>
+
+  <nav class="g-sub-header-nav">
+    <ul class="l-wrap">
+      <li><%= link_to 'Comps', new_comp_path %></li>
+      <li class="active"><%= link_to 'Export', new_comp_path %></li>
+    </ul>
+  </nav>
 
   <div class="l-wrap">
     <%= yield %>

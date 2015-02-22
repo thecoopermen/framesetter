@@ -34,3 +34,32 @@
   background-color: $color-white;
   @include border-radius($ui-border-radius);
 }
+
+.g-sub-header-nav {
+  background-color: #e0ddd7;
+  border-bottom: $border-style #d9d4d7;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    margin-bottom: -0.1rem;
+
+    &.active {
+      a {
+        color: $color-type;
+        background-color: $color-grey-light;
+        border: $border-style #d9d4d7;
+        border-top: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  a {
+    color: #a1989d;
+    line-height: $space*6;
+    padding: 0 $space*2;
+
+  }
+
+}
