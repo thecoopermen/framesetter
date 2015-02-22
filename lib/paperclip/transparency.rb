@@ -5,13 +5,14 @@ class Paperclip::Transparency < Paperclip::Processor
       if pixel.intensity > 0
         if area = find_area(c, r)
           area[1] = [c, r]
+          area[2] += 1
         else
-          areas << [[c, r], [c, r]]
+          areas << [[c, r], [c, r], 1]
         end
       end
     end
 
-    biggest = areas.max_by { |area| (area[1][0] - area[0][0]) * (area[1][1] - area[0][1]) }
+    biggest = areas.max_by { |area| area[2] }
     attachment.instance.assign_attributes(
       left: biggest[0][0],
       top: biggest[0][1],
