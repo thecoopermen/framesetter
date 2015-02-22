@@ -3,7 +3,7 @@
   @include border-radius($ui-border-radius);
   padding: $l-gutter;
   margin-bottom: $l-gutter;
-  @include box-shadow(0.2rem 0.2rem 0.4rem rgba($color-black, 0.06));
+  border: $border;
 }
 
 .mod-white-sidebar {

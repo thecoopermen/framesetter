@@ -1,0 +1,43 @@
+.pg-export {
+  background-color: #f6f3f0;
+  border: $border;
+  @include clearfix();
+}
+
+.pg-export-comps,
+.pg-export-frames {
+  float: left;
+}
+
+.pg-export-comps {
+  width: $pg-export-comps-width;
+  border-right: $border-light;
+}
+
+.pg-export-comp {
+  padding: $space*2;
+  border-bottom: $border-light;
+  height: 11rem;
+  overflow: hidden;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.pg-export-frames {
+  width: $pg-export-frames-width ;
+}
+
+.pg-export-preview {
+  background-color: $color-white;
+  margin-left: $pg-export-frames-width + $pg-export-comps-width;
+  padding: $space*8;
+}
+
+.pg-export-frames-dropdown-wrap,
+.pg-export-frames-dropdown {
+  background-color: $color-grey-dark;
+  color: $color-white;
+  padding: $space*2;
+}

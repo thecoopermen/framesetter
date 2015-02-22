@@ -1,29 +1,41 @@
 <div ng-controller="ExportController">
-  <h1 class="s-page-header">Choose your frame set</h1>
-  <div class="l-main">
-    <ul class="l-tiles-wrap">
-      <li class="l-tiles-2" ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
-        <div class="mod-white" ng-class="{'mod-highlighted': frameset.selected}">
-          <div class="mod-frame-set">
-            <img ng-src="{{frameset.icon}}" alt="">
-            <span class="mod-frame-set-name">{{frameset.name}}</span>
+  <h1 class="s-page-header">Export Framed Comps</h1>
+    <div class="mod-white no-padding pos-clearfix">
+      <ul class="pg-export-comps">
+        <li class="pg-export-comp mod-highlighted"><%= image_tag('sample-comp.png') %></li>
+        <li class="pg-export-comp"><%= image_tag('sample-comp.png') %></li>
+      </ul>
+
+      <div class="pg-export-frames">
+        <div class="mod-dropdown-click-trigger pg-export-frames-dropdown-wrap">
+          <span class="type-weight-bold">{{frameset.name}}<i class="icon-chevron-down mod-dropdown-arrow"></i></span>
+          <div class="mod-dropdown pg-export-frames-dropdown">
+            <ul>
+
+              <li ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
+              <div ng-class="{'': frameset.selected}">
+                <div class="mod-frame-set">
+                  <img ng-src="{{frameset.icon}}" alt="">
+                  <span class="mod-frame-set-name">{{frameset.name}}</span>
+                </div>
+              </div>
+              </li>
+            </ul>
           </div>
         </div>
-      </li>
-    </ul>
-  </div>
 
-  <div class="l-sidebar">
-    <div class="mod-white-sidebar">
-      <ul ng-cloak>
-        <li class="mod-highlighted mod-frame-li pos-inline-block-y-center" ng-repeat="frame in frameset.frames">
-          <div class="mod-frame-li-img-wrap">
-            <img ng-src="{{frame.image}}" alt="">
-          </div>
-          <span class="mod-frame-li-name">{{frame.name}}</span>
-        </li>
-      </ul>
+        <ul ng-cloak>
+          <li class="mod-highlighted mod-frame-li pos-inline-block-y-center" ng-repeat="frame in frameset.frames">
+            <div class="mod-frame-li-img-wrap">
+              <img ng-src="{{frame.image}}" alt="">
+            </div>
+            <span class="mod-frame-li-name">{{frame.name}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pg-export-preview">
+        <a class="ui-btn-large">Download X Framed Comps</a>
+      </div>
     </div>
-    <a class="ui-btn-large s-stretch">Frame Your Comps</a>
-  </div>
 </div>

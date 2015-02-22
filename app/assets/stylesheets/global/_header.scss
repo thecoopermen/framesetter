@@ -1,8 +1,7 @@
 .g-header {
-  background-color: $color-g-header;
+  background-color: $color-grey-dark;
   @include clearfix();
   color: $color-white;
-  @include box-shadow(0.2rem 0.2rem 0.4rem rgba($color-black, 0.2));
 }
 
 .g-header-logo {

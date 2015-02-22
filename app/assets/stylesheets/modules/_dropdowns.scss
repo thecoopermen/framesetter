@@ -8,15 +8,29 @@
   }
 }
 
+.mod-dropdown-click-trigger {
+  position: relative;
+}
+
 .mod-dropdown {
   display: none;
   position: absolute;
   top: 100%;
   line-height: normal;
+  min-width: 100%;
+  left: 0;
+
+  &.active {
+    display: block;
+  }
 }
 
 .mod-dropdown-right {
   @extend .mod-dropdown;
   right: 0;
+  left: auto;
 }
 
+.mod-dropdown-arrow {
+  float: right;
+}
