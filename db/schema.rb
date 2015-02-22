@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222172031) do
+ActiveRecord::Schema.define(version: 20150222233831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,44 @@ ActiveRecord::Schema.define(version: 20150222172031) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "frameset_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "top"
     t.integer  "left"
     t.integer  "width"
     t.integer  "height"
+    t.integer  "original_0_top"
+    t.integer  "original_0_left"
+    t.integer  "original_0_width"
+    t.integer  "original_0_height"
+    t.integer  "original_90_top"
+    t.integer  "original_90_left"
+    t.integer  "original_90_width"
+    t.integer  "original_90_height"
+    t.integer  "original_180_top"
+    t.integer  "original_180_left"
+    t.integer  "original_180_width"
+    t.integer  "original_180_height"
+    t.integer  "original_270_top"
+    t.integer  "original_270_left"
+    t.integer  "original_270_width"
+    t.integer  "original_270_height"
+    t.integer  "preview_0_top"
+    t.integer  "preview_0_left"
+    t.integer  "preview_0_width"
+    t.integer  "preview_0_height"
+    t.integer  "preview_90_top"
+    t.integer  "preview_90_left"
+    t.integer  "preview_90_width"
+    t.integer  "preview_90_height"
+    t.integer  "preview_180_top"
+    t.integer  "preview_180_left"
+    t.integer  "preview_180_width"
+    t.integer  "preview_180_height"
+    t.integer  "preview_270_top"
+    t.integer  "preview_270_left"
+    t.integer  "preview_270_width"
+    t.integer  "preview_270_height"
   end
 
   create_table "framesets", force: :cascade do |t|

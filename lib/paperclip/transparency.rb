@@ -1,24 +1,28 @@
 class Paperclip::Transparency < Paperclip::Processor
 
   def make
-    Magick::Image.read(file.path).first.channel(Magick::AlphaChannel).each_pixel do |pixel, c, r|
-      if pixel.intensity > 0
-        if area = find_area(c, r)
-          area[1] = [c, r]
-          area[2] += 1
-        else
-          areas << [[c, r], [c, r], 1]
+    prefix = "#{options[:style]}_"
+
+    if attachment.instance.respond_to?(:"#{prefix}left")
+      Magick::Image.read(file.path).first.channel(Magick::AlphaChannel).each_pixel do |pixel, c, r|
+        if pixel.intensity > 0
+          if area = find_area(c, r)
+            area[1] = [c, r]
+            area[2] += 1
+          else
+            areas << [[c, r], [c, r], 1]
+          end
         end
       end
-    end
 
-    biggest = areas.max_by { |area| area[2] }
-    attachment.instance.assign_attributes(
-      left: biggest[0][0],
-      top: biggest[0][1],
-      width: biggest[1][0] - biggest[0][0] + 1,
-      height: biggest[1][1] - biggest[0][1] + 1
-    )
+      biggest = areas.max_by { |area| area[2] }
+      attachment.instance.assign_attributes(
+        :"#{prefix}left" => biggest[0][0],
+        :"#{prefix}top" => biggest[0][1],
+        :"#{prefix}width" => biggest[1][0] - biggest[0][0] + 1,
+        :"#{prefix}height" => biggest[1][1] - biggest[0][1] + 1
+      )
+    end
 
     File.new(@file.path)
   end
