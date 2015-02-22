@@ -1,17 +1,28 @@
 .pg-export {
-  background-color: #f6f3f0;
+  position: relative;
+  background-color: $color-grey-light-med;
   border: $border;
   @include clearfix();
+  @include border-radius($ui-border-radius);
 }
 
 .pg-export-comps,
 .pg-export-frames {
   float: left;
+  position: absolute;
 }
 
 .pg-export-comps {
   width: $pg-export-comps-width;
   border-right: $border-light;
+  left: 0;
+  top: 0;
+}
+
+.pg-export-frames {
+  width: $pg-export-frames-width;
+  left: $pg-export-comps-width;
+  top: 0;
 }
 
 .pg-export-comp {
@@ -25,14 +36,23 @@
   }
 }
 
-.pg-export-frames {
-  width: $pg-export-frames-width ;
-}
-
 .pg-export-preview-wrap {
   background-color: $color-white;
+  @include border-top-right-radius($ui-border-radius);
+  @include border-bottom-right-radius($ui-border-radius);
   margin-left: $pg-export-frames-width + $pg-export-comps-width;
   padding: $space*8;
+  border-left: $border;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0.1rem;
+    background-color: $color-border-light;
+    height: 100%;
+    left: $pg-export-comps-width - 0.1rem;
+    top: 0;
+  }
 }
 
 .pg-export-preview {

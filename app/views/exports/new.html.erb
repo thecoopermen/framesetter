@@ -1,6 +1,6 @@
 <div ng-controller="ExportController">
   <h2 class="s-page-header">Export Framed Comps</h2>
-    <div class="mod-white no-padding pos-clearfix">
+    <div class="pg-export">
 
       <ul class="pg-export-comps" ng-cloak>
         <li class="pg-export-comp" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
@@ -48,7 +48,7 @@
             <img ng-src="{{selectedFrame.image}}" image-load="updateFrameRatio($event)" alt="">
           </div>
 
-          <a class="ui-btn-large">Download X Framed Comps</a>
+          <a class="ui-btn">Download X Framed Comps</a>
         </div>
       </div>
     </div>
