@@ -1,6 +1,7 @@
 class CompsController < ApplicationController
 
   def index
+    @comps = Comp.all
   end
 
   def new

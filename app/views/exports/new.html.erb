@@ -1,31 +1,35 @@
 <div ng-controller="ExportController">
   <h1 class="s-page-header">Export Framed Comps</h1>
     <div class="mod-white no-padding pos-clearfix">
-      <ul class="pg-export-comps">
-        <li class="pg-export-comp mod-highlighted"><%= image_tag('sample-comp.png') %></li>
-        <li class="pg-export-comp"><%= image_tag('sample-comp.png') %></li>
+
+      <ul class="pg-export-comps" ng-cloak>
+        <li class="pg-export-comp" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
+          <img ng-src="{{comp.image}}" alt="">
+        </li>
       </ul>
 
       <div class="pg-export-frames">
-        <div class="mod-dropdown-click-trigger pg-export-frames-dropdown-wrap">
-          <span class="type-weight-bold">{{frameset.name}}<i class="icon-chevron-down mod-dropdown-arrow"></i></span>
-          <div class="mod-dropdown pg-export-frames-dropdown">
+        <div class="mod-dropdown-click-trigger pg-export-frames-dropdown-wrap"  ng-click="toggleFramesetDropdown($event)" ng-cloak>
+          <span class="type-weight-bold">
+            {{selectedFrameset.name}}
+            <i class="icon-chevron-down mod-dropdown-arrow"></i>
+          </span>
+          <div class="mod-dropdown pg-export-frames-dropdown" ng-class="{active: showFramesets}">
             <ul>
-
               <li ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
-              <div ng-class="{'': frameset.selected}">
-                <div class="mod-frame-set">
-                  <img ng-src="{{frameset.icon}}" alt="">
-                  <span class="mod-frame-set-name">{{frameset.name}}</span>
+                <div ng-class="{'': frameset.selected}">
+                  <div class="mod-frame-set">
+                    <img ng-src="{{frameset.icon}}" alt="">
+                    <span class="mod-frame-set-name">{{frameset.name}}</span>
+                  </div>
                 </div>
-              </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <ul ng-cloak>
-          <li class="mod-highlighted mod-frame-li pos-inline-block-y-center" ng-repeat="frame in frameset.frames">
+        <ul>
+          <li class="mod-frame-li pos-inline-block-y-center" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
             <div class="mod-frame-li-img-wrap">
               <img ng-src="{{frame.image}}" alt="">
             </div>
@@ -34,7 +38,9 @@
         </ul>
       </div>
 
-      <div class="pg-export-preview">
+      <div class="pg-export-preview" ng-cloak ng-show="selectedFrame && selectedComp">
+        <img ng-src="{{selectedFrame.image}}" alt="">
+        <img ng-src="{{selectedComp.image}}" alt="">
         <a class="ui-btn-large">Download X Framed Comps</a>
       </div>
     </div>
