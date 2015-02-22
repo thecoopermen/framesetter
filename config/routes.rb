@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :exports, only: [ :index, :new, :create, :edit, :update ]
 
   get '/login', to: 'sessions#new'
-  get '/logout' to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
 
   root to: 'welcome#index'
 end
