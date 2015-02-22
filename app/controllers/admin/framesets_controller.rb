@@ -9,8 +9,8 @@ class Admin::FramesetsController < Admin::ApplicationController
   end
 
   def create
-    frameset = Frameset.new(frameset_params)
-    if frameset.save
+    @frameset = Frameset.new(frameset_params)
+    if @frameset.save
       redirect_to admin_framesets_path, notice: 'Frameset successfully created'
     else
       render :new
@@ -22,8 +22,8 @@ class Admin::FramesetsController < Admin::ApplicationController
   end
 
   def update
-    frameset = Frameset.find(params[:id])
-    if frameset.update_attributes(frameset_params)
+    @frameset = Frameset.find(params[:id])
+    if @frameset.update_attributes(frameset_params)
       redirect_to admin_framesets_path, notice: 'Frameset successfully updated'
     else
       render :new

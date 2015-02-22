@@ -1,0 +1,34 @@
+<h1>Editing <i><%= @frame.name %></i></h1>
+
+<%= form_for [:admin, @frameset, @frame] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <label>Transparent Area</label>
+    <div class="form-inline">
+      <%= f.label :left %>
+      <%= f.text_field :left, class: 'form-control', style: 'width: 75px' %>
+
+      <%= f.label :top %>
+      <%= f.text_field :top, class: 'form-control', style: 'width: 75px' %>
+
+      <%= f.label :width %>
+      <%= f.text_field :width, class: 'form-control', style: 'width: 75px' %>
+
+      <%= f.label :height %>
+      <%= f.text_field :height, class: 'form-control', style: 'width: 75px' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

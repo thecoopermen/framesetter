@@ -18,31 +18,31 @@ class Admin::FramesController < Admin::ApplicationController
   end
 
   def edit
-    # @frameset = Frameset.find(params[:id])
+    @frame = frameset.frames.find(params[:id])
   end
 
   def update
-    # frameset = Frameset.find(params[:id])
-    # if frameset.update_attributes(frameset_params)
-    #   redirect_to admin_framesets_path, notice: 'Frameset successfully updated'
-    # else
-    #   render :new
-    # end
+    @frame = frameset.frames.find(params[:id])
+    if @frame.update_attributes(frame_params)
+      redirect_to admin_frameset_frames_path(frameset), notice: 'Frame successfully updated'
+    else
+      render :new
+    end
   end
 
   def destroy
-    # frameset = Frameset.find(params[:id])
-    # if frameset.destroy
-    #   redirect_to admin_framesets_path, notice: 'Frameset deleted successfully'
-    # else
-    #   redirect_to admin_framesets_path, alert: 'Frameset could not be deleted. Try again later.'
-    # end
+    frame = frameset.frames.find(params[:id])
+    if frame.destroy
+      redirect_to admin_frameset_frames_path(frameset), notice: 'Frame deleted successfully'
+    else
+      redirect_to admin_frameset_frames_path(frameset), alert: 'Frame could not be deleted. Try again later.'
+    end
   end
 
 private
 
   def frame_params
-    params.require(:frame).permit(:name, :image)
+    params.require(:frame).permit(:name, :image, :left, :top, :width, :height)
   end
 
   def frameset

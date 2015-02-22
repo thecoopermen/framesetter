@@ -1,6 +1,6 @@
 <h1>
   <%= image_tag(@frameset.icon.url, style: 'max-height: 40px') if @frameset.icon.present? %>
-  Editing: <%= @frameset.name %>
+  Editing <i><%= @frameset.name %></i>
 </h1>
 
 <%= render partial: 'form' %>

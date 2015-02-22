@@ -1,3 +1,17 @@
 <h1>New Frame for <i><%= @frameset.name %></i></h1>
 
-<%= render partial: 'form' %>
+<%= form_for [:admin, @frameset, @frame] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
