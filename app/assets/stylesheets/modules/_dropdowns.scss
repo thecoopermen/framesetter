@@ -1,0 +1,22 @@
+.mod-dropdown-trigger {
+  position: relative;
+
+  &:hover {
+    .mod-dropdown {
+      display: block;
+    }
+  }
+}
+
+.mod-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  line-height: normal;
+}
+
+.mod-dropdown-right {
+  @extend .mod-dropdown;
+  right: 0;
+}
+

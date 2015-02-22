@@ -1,0 +1,11 @@
+@mixin type-size($name) {
+  $map-entry: map-get($type-sizes, $name);
+
+  font-size: (nth($map-entry, 1) / $type-base-font-size) + rem;
+  line-height: nth($map-entry, 2) + em;
+}
+
+@mixin dim($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

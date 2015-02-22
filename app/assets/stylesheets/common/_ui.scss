@@ -1,0 +1,29 @@
+.ui-btn {
+  background-color: $color-accent;
+  border: 0;
+  color: $color-white;
+  display: inline-block;
+  @include type-size(small);
+  font-weight: 700;
+  height: $space*4;
+  line-height: $space*4;
+  padding: 0 1.5em;
+  @include border-radius($ui-border-radius);
+}
+
+.ui-btn-secondary {
+  background-color: $color-grey-med;
+}
+
+.ui-btn-large {
+  @extend .ui-btn;
+  @include type-size(body);
+  height: $space*6;
+  line-height: $space*6;
+}
+
+.ui-btn-set-left {
+  > * {
+    margin-right: $space*2;
+  }
+}

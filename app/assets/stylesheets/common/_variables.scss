@@ -1,0 +1,25 @@
+$space: 0.8rem;
+$l-width: 95rem;
+$color-accent: #ed40a2;
+$color-link: $color-accent;
+$color-type: #290733;
+$color-white: #fff;
+$color-grey-light: #ebe6ea;
+$color-grey-med: #998294;
+
+$ui-border-radius: 0.2rem;
+
+$border-style: 0.1rem solid;
+
+$type-base-font-size: 10;
+$type-font-family: "museo-sans-rounded", "helvetica";
+$type-sizes: (
+  xsmall: (9, 1.5),
+  small:  (14, 1.5),
+  body:   (18, 1.55),
+  large:  (21,  1.2),
+  xlarge: (24,  1.3),
+  huge:   (30, 1.1)
+);
+
+$pg-new-comps-img-width: 20%;

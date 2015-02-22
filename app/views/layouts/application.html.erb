@@ -5,51 +5,57 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script src="//use.typekit.net/kmx6xsb.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 
-<header class="g-header">
-  <a href="" class="g-header-logo"></a>
-  <nav class="g-header-nav">
-    <ul>
-      <li>
-        <a href="" class="ui-btn">New Comps</a>
-      </li>
-      <li class="mod-dropdown-trigger">
-        <button>
-          <i class="icon-user"></i>
-          <i class="chevron-down">
-            <nav class="mod-dropdown">
-              <ul>
-                <li>
+  <header class="g-header">
+    <div class="l-wrap">
+      <a href="" class="g-header-logo">FrameSetter</a>
+      <nav class="g-header-nav">
+        <ul>
+          <li>
+          <a href="" class="ui-btn">New Comp</a>
+          </li><li class="mod-dropdown-trigger g-header-user">
+            <%= image_tag('headshot.png', class: 'g-header-nav-avatar') %>
+            <i class="icon-chevron-down">
+              <nav class="mod-dropdown">
+                <ul>
+                  <li>
                   <a href="">Your Comps</a>
-                </li>
-                <li>
+                  </li>
+                  <li>
                   <a href="">Your Exports</a>
-                </li>
-              </ul>
-            </nav>
-          </i>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</header>
+                  </li>
+                </ul>
+              </nav>
+            </i>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<%= yield %>
+  <div class="l-wrap">
+    <%= yield %>
+  </div>
 
-<footer class="g-footer">
-  <nav>
-    <ul>
-      <li>
-        <a href="">Contact Us</a>
-      </li>
-      <li>
-        <a href="">Request a Feature</a>
-      </li>
-    </ul>
-  </nav>
-</footer>
+  <footer class="g-footer">
+    <div class="l-wrap">
+      <nav>
+        <ul>
+          <li>
+          <a href="">Contact Us</a>
+          </li>
+          <li>
+          <a href="">Request a Feature</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 
 </body>
 </html>

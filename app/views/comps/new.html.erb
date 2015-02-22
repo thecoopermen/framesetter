@@ -1,69 +1,34 @@
-<h1>New Comp</h1>
-<input type="file" class="text" value="" name="">
-<div class="pg-new-comps-left">
+<h1 class="s-page-header">New Comp</h1>
+
+<div class="mod-white">
+  <input type="file" style="display: none;" value="" name="">
+  <div class="ui-btn-set-left">
+    <a class="ui-btn-large ui-btn-secondary">Add Comps</a><a class="ui-btn-large">Get Framing!</a>
+  </div>
+</div>
+
+<div class="mod-white">
   <ul>
-    <li>
-      <img src="" alt="" class="pg-new-comps-img">
-      <div class="pg-new-comps-info">
-        <h5>File Name</h5>
-        <p>/jordancooperman/desktop/image-of-camel.jpg</p>
-        <div class="mod-progress-bar">
-          <div class="mod-progress-bar-filled"></div>
-          <div class="pg-new-comps-actions">
-            <button>
-              <i class="icon-trash"></i>
-            </button>
-          </div>
-        </div>
+    <li class="pg-new-comps-comp">
+      <div class="pg-new-comps-img-wrap">
+        <%= image_tag('sample-comp.png') %>
       </div>
-    </li>
-    <li>
-      <img src="" alt="" class="pg-new-comps-img">
       <div class="pg-new-comps-info">
-        <h5>File Name</h5>
-        <p>/jordancooperman/desktop/image-of-camel.jpg</p>
+        <header>
+          <h5>File Name</h5>
+          <p>/jordancooperman/desktop/image-of-camel.jpg</p>
+        </header>
+
         <div class="mod-progress-bar">
-          <div class="mod-progress-bar-filled"></div>
-          <div class="pg-new-comps-actions">
-            <button>
-              <i class="icon-trash"></i>
-            </button>
-          </div>
+          <div class="mod-progress-bar-filled" style="width: 30%"></div>
         </div>
-      </div>
-    </li>
-    <li>
-      <img src="" alt="" class="pg-new-comps-img">
-      <div class="pg-new-comps-info">
-        <h5>File Name</h5>
-        <p>/jordancooperman/desktop/image-of-camel.jpg</p>
-        <div class="mod-progress-bar">
-          <div class="mod-progress-bar-filled"></div>
-          <div class="pg-new-comps-actions">
-            <button>
-              <i class="icon-trash"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <img src="" alt="" class="pg-new-comps-img">
-      <div class="pg-new-comps-info">
-        <h5>File Name</h5>
-        <p>/jordancooperman/desktop/image-of-camel.jpg</p>
-        <div class="mod-progress-bar">
-          <div class="mod-progress-bar-filled"></div>
-          <div class="pg-new-comps-actions">
-            <button>
-              <i class="icon-trash"></i>
-            </button>
-          </div>
+
+        <div class="pg-new-comps-actions">
+          <button class="ui-btn-large ui-btn-secondary">
+            <i class="icon-trash"></i>
+          </button>
         </div>
       </div>
     </li>
   </ul>
-  <div class="pg-new-comps-right">
-    <button>Get Framing!</button>
-  </div>
 </div>

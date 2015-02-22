@@ -1,0 +1,22 @@
+.mod-white {
+  background-color: $color-white;
+  @include border-radius($ui-border-radius*2);
+  padding: $space*3;
+  margin-bottom: $space*3;
+  border: $border-style rgba($color-grey-med, 0.35);
+}
+
+.mod-progress-bar {
+  height: $space;
+  width: 100%;
+  background-color: $color-grey-light;
+  position: relative;
+}
+
+.mod-progress-bar-filled {
+  background-color: $color-grey-med;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}

@@ -1,0 +1,54 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+body, input, button, select, textarea {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-type;
+  font-family: $type-font-family;
+  font-weight: normal;
+}
+
+a {
+  color: $color-link;
+  @include transition();
+
+  &:hover {
+    color: rgba($color-link, 0.7);
+  }
+
+  p {
+    color: $color-type;
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.25em;
+}
+
+h1 {
+  @include type-size(huge);
+}
+
+h3 {
+  @include type-size(xlarge);
+}
+
+h4 {
+  @include type-size(large);
+}
+
+b, strong {
+  font-weight: 500;
+}
+
+.type-weight-normal {
+  font-weight: normal;
+}
+
