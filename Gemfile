@@ -7,8 +7,7 @@ gem 'unicorn'
 gem 'paperclip', '~> 4.2'
 gem 'fog', '~> 1.28'
 gem 'rmagick', '~> 2.13'
-
-# gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.0'
 
 gem 'sass-rails', '~> 5.0'
 gem 'compass-rails', '~> 2.0'
