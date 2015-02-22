@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  @include type-size(body);
 }
 
 body, input, button, select, textarea {
@@ -18,7 +18,7 @@ a {
   color: $color-link;
 
   &:hover {
-    color: rgba($color-link, 0.7);
+    opacity: 0.75;
   }
 
   p {
@@ -31,15 +31,19 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.25em;
 }
 
-h1 {
+h1,
+.type-huge {
   @include type-size(huge);
+  margin-bottom: $space;
 }
 
-h3 {
+h2
+.type-xlarge {
   @include type-size(xlarge);
 }
 
-h4 {
+h4,
+.type-large {
   @include type-size(large);
 }
 
@@ -59,3 +63,12 @@ b, strong {
   font-weight: 700;
 }
 
+.type-on-dark {
+  a {
+    color: $color-white;
+  }
+}
+
+.type-secondary {
+  color: $color-type-light
+}

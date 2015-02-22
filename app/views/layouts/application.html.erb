@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Framesetter</title>
+  <title>InFrame</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,10 +12,18 @@
 <body ng-app="app">
 
   <header class="g-header">
-    <div class="l-wrap">
-      <a href="" class="g-header-logo">FrameSetter</a>
+    <div class="l-wrap type-on-dark">
+      <%= link_to 'InFrame', root_path, class: 'g-header-logo' %>
       <nav class="g-header-nav">
         <ul>
+          <li><%= link_to 'Upload A Design', new_comp_path %></li>
+          <li>
+            <a href="">Sign Up</a>
+          </li>
+          <li>
+            <a href="">Log In</a>
+          </li>
+          <!--
           <li class="mod-dropdown-trigger g-header-user">
             <%= image_tag('headshot.png', class: 'g-header-nav-avatar') %>
             <i class="icon-chevron-down"></i>
@@ -27,17 +35,11 @@
               </ul>
             </nav>
           </li>
+          -->
         </ul>
       </nav>
     </div>
   </header>
-
-  <nav class="g-sub-header-nav">
-    <ul class="l-wrap">
-      <li><%= link_to 'Comps', new_comp_path %></li>
-      <li class="active"><%= link_to 'Export', new_comp_path %></li>
-    </ul>
-  </nav>
 
   <div class="l-wrap">
     <%= yield %>
@@ -45,13 +47,18 @@
 
   <footer class="g-footer">
     <div class="l-wrap">
-      <nav>
+      <nav class="g-footer-nav">
         <ul>
           <li>
-          <a href="">Contact Us</a>
+            <a href="">Contact Us</a>
           </li>
+
           <li>
-          <a href="">Request a Feature</a>
+            <a href="">Request a Feature</a>
+          </li>
+
+          <li>
+            <a href="">Submit a Frameset</a>
           </li>
         </ul>
       </nav>

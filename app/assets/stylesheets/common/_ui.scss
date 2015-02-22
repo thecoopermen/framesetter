@@ -23,7 +23,7 @@
 
 .ui-btn-large {
   @extend .ui-btn;
-  @include type-size(body);
+  @include type-size(large);
   height: $space*6;
   line-height: $space*6;
 }

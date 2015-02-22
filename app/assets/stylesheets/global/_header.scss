@@ -1,7 +1,6 @@
 .g-header {
-  background-color: $color-grey-dark;
+  background-color: $color-accent;
   @include clearfix();
-  color: $color-white;
 }
 
 .g-header-logo {
@@ -9,11 +8,11 @@
   font-size: 2rem;
   line-height: $g-header-height;
   font-weight: bold;
-  color: $color-white;
 }
 
 .g-header-nav {
   float: right;
+  font-weight: bold;
   ul > * {
     line-height: $g-header-height;
     display: inline-block;
@@ -56,10 +55,9 @@
   }
 
   a {
-    color: #a1989d;
+    color: $color-type-light;
     line-height: $space*6;
     padding: 0 $space*2;
-
   }
 
 }

@@ -1,0 +1,16 @@
+.g-footer-nav {
+  margin-top: $space*10;
+  border-top: $border;
+  float: left;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    margin-right: $space*2;
+  }
+
+  a {
+    padding: $space*2 0;
+    color: $color-type-light;
+  }
+}
