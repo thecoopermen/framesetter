@@ -1,4 +1,4 @@
-angular.module('app').controller('UploadController', function($scope, $element, $http) {
+angular.module('app').controller('UploadController', function($scope, $element, $http, $filter) {
   $scope.queue = []
 
   $scope.selectFiles = function($event) {
@@ -8,8 +8,17 @@ angular.module('app').controller('UploadController', function($scope, $element, 
 
   $scope.remove = function($event, file) {
     if (file.$destroy) file.$destroy();
+    if (file.result) $http.delete('/comps/' + file.result.id);
     file.hidden = true
-    $http.delete('/comps/' + file.result.id);
+  }
+
+  $scope.readyToFrame = function() {
+    if ($scope.queue.length == 0) return false;
+
+    var incomplete = $filter('filter')($scope.queue, function(file, i) {
+      return file.hidden || file.$state() != "resolved"
+    });
+    return incomplete.length == 0;
   }
 
   $scope.$on('fileuploadadd', function($scope, file) {

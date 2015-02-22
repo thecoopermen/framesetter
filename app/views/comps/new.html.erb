@@ -6,7 +6,7 @@
       <%= f.file_field :image, multiple: true, style: 'display: none;' %>
       <div class="ui-btn-set-left">
         <a class="ui-btn-large ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
-        <a class="ui-btn-large" ng-disabled="queue.length == 0">Get Framing!</a>
+        <a class="ui-btn-large" ng-disabled="!readyToFrame()">Get Framing!</a>
       </div>
     <% end %>
   </div>
