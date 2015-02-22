@@ -1,0 +1,8 @@
+.pos-inline-block-y-center {
+  &:after {
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

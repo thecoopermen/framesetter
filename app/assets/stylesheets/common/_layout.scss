@@ -1,6 +1,8 @@
 .l-wrap {
-  width: $l-width;
+  max-width: $l-width;
+  min-width: $l-min-width;
   margin: 0 auto;
+  padding: 0 $space*2;
 }
 
 .l-main {

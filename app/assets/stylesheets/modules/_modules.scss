@@ -1,8 +1,9 @@
 .mod-white {
   background-color: $color-white;
-  @include border-radius($ui-border-radius*2);
+  @include border-radius($ui-border-radius);
   padding: $l-gutter;
   margin-bottom: $l-gutter;
+  @include box-shadow(0.2rem 0.2rem 0.4rem rgba($color-black, 0.06));
 }
 
 .mod-white-sidebar {
@@ -29,35 +30,3 @@
   background-color: $color-highlight;
 }
 
-.mod-frame-set {
-  position: relative;
-  height: 20rem;
-  padding-bottom: $space*2;
-}
-
-.mod-frame-set-name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.mod-frame-li {
-  padding: 0 $l-gutter;
-  height: $space*8;
-  border-bottom: $border-style rgba($color-black, 0.1);
-
-  &:last-child {
-    border-bottom: 0;
-  }
-
-  img {
-    max-height: $space*6;
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-.mod-frame-li-name {
-  display: inline-block;
-  vertical-align: middle;
-}

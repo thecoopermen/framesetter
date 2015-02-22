@@ -16,7 +16,6 @@ body, input, button, select, textarea {
 
 a {
   color: $color-link;
-  @include transition();
 
   &:hover {
     color: rgba($color-link, 0.7);

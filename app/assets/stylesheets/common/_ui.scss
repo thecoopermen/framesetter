@@ -9,6 +9,12 @@
   line-height: $space*4;
   padding: 0 1.5em;
   @include border-radius($ui-border-radius);
+  text-align: center;
+
+  &:hover {
+    background-color: darken($color-accent, 10);
+    color: $color-white;
+  }
 }
 
 .ui-btn-secondary {
