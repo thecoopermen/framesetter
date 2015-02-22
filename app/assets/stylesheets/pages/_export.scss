@@ -29,10 +29,14 @@
   width: $pg-export-frames-width ;
 }
 
-.pg-export-preview {
+.pg-export-preview-wrap {
   background-color: $color-white;
   margin-left: $pg-export-frames-width + $pg-export-comps-width;
   padding: $space*8;
+}
+
+.pg-export-preview {
+  position: relative;
 }
 
 .pg-export-frames-dropdown-wrap,
@@ -40,4 +44,18 @@
   background-color: $color-grey-dark;
   color: $color-white;
   padding: $space*2;
+}
+
+.pg-export-preview-frame {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+}
+
+.pg-export-preview-comp-wrap {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
 }

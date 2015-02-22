@@ -38,10 +38,17 @@
         </ul>
       </div>
 
-      <div class="pg-export-preview" ng-cloak ng-show="selectedFrame && selectedComp">
-        <img ng-src="{{selectedFrame.image}}" alt="">
-        <img ng-src="{{selectedComp.image}}" alt="">
-        <a class="ui-btn-large">Download X Framed Comps</a>
+      <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
+        <div class="pg-export-preview">
+          <div class="pg-export-preview-comp-wrap">
+            <img ng-src="{{selectedComp.image}}" alt="">
+          </div>
+
+          <div class="pg-export-preview-frame">
+            <img ng-src="{{selectedFrame.image}}" alt="">
+          </div>
+          <a class="ui-btn-large">Download X Framed Comps</a>
+        </div>
       </div>
     </div>
 </div>
