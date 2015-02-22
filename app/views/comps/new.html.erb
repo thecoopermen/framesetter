@@ -1,34 +1,39 @@
 <h1 class="s-page-header">New Comp</h1>
 
-<div class="mod-white">
-  <input type="file" style="display: none;" value="" name="">
-  <div class="ui-btn-set-left">
-    <a class="ui-btn-large ui-btn-secondary">Add Comps</a><a class="ui-btn-large">Get Framing!</a>
+<div ng-controller="UploadController">
+  <div class="mod-white">
+    <%= form_for Comp.new, data: { file_upload: 'options' } do |f| %>
+      <%= f.file_field :image, multiple: true, style: 'display: none;' %>
+      <div class="ui-btn-set-left">
+        <a class="ui-btn-large ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
+        <a class="ui-btn-large" ng-disabled="queue.length == 0">Get Framing!</a>
+      </div>
+    <% end %>
   </div>
-</div>
 
-<div class="mod-white">
-  <ul>
-    <li class="pg-new-comps-comp">
-      <div class="pg-new-comps-img-wrap">
-        <%= image_tag('sample-comp.png') %>
-      </div>
-      <div class="pg-new-comps-info">
-        <header>
-          <h5>File Name</h5>
-          <p>/jordancooperman/desktop/image-of-camel.jpg</p>
-        </header>
-
-        <div class="mod-progress-bar">
-          <div class="mod-progress-bar-filled" style="width: 30%"></div>
+  <div class="mod-white" ng-cloak ng-repeat="file in queue">
+    <ul>
+      <li class="pg-new-comps-comp">
+        <div class="pg-new-comps-img-wrap">
+          <div class="preview" data-file-upload-preview="file"></div>
         </div>
+        <div class="pg-new-comps-info">
+          <header>
+            <h5>File Name</h5>
+            <p>{{file.name}}</p>
+          </header>
 
-        <div class="pg-new-comps-actions">
-          <button class="ui-btn-large ui-btn-secondary">
-            <i class="icon-trash"></i>
-          </button>
+          <div class="mod-progress-bar" data-file-upload-progress="file.$progress()">
+            <div class="mod-progress-bar-filled" ng-style="{width: num + '%'}"></div>
+          </div>
+
+          <div class="pg-new-comps-actions">
+            <button class="ui-btn-large ui-btn-secondary">
+              <i class="icon-trash"></i>
+            </button>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>

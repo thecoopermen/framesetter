@@ -9,7 +9,7 @@
   <script src="//use.typekit.net/kmx6xsb.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
 </head>
-<body>
+<body ng-app="app">
 
   <header class="g-header">
     <div class="l-wrap">
@@ -17,7 +17,7 @@
       <nav class="g-header-nav">
         <ul>
           <li>
-          <a href="" class="ui-btn">New Comp</a>
+            <%= link_to 'New Comp', new_comp_path, class: 'ui-btn' %>
           </li><li class="mod-dropdown-trigger g-header-user">
             <%= image_tag('headshot.png', class: 'g-header-nav-avatar') %>
             <i class="icon-chevron-down">
