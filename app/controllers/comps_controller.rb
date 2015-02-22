@@ -12,7 +12,7 @@ class CompsController < ApplicationController
   end
 
   def destroy
-    redirect_to :index
+    render nothing: true, status: (Comp.find(params[:id]).destroy ? 200 : 500)
   end
 
 private

@@ -11,7 +11,7 @@
     <% end %>
   </div>
 
-  <div class="mod-white" ng-cloak ng-repeat="file in queue">
+  <div class="mod-white" ng-cloak ng-repeat="file in queue | filter: {hidden: undefined}">
     <ul>
       <li class="pg-new-comps-comp">
         <div class="pg-new-comps-img-wrap">
@@ -28,7 +28,7 @@
           </div>
 
           <div class="pg-new-comps-actions">
-            <button class="ui-btn-large ui-btn-secondary">
+            <button class="ui-btn-large ui-btn-secondary" ng-click="remove($event, file)">
               <i class="icon-trash"></i>
             </button>
           </div>
