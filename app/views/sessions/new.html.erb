@@ -1,0 +1,11 @@
+<%= form_tag login_path do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, params[:email] %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password, params[:password] %>
+
+  <button type="submit">Log in</button>
+<% end %>
+
+<%= link_to 'Register', signup_path %>
