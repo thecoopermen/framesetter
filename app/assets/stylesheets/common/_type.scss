@@ -72,3 +72,7 @@ b, strong {
 .type-secondary {
   color: $color-type-light
 }
+
+.type-small {
+  @include type-size(small);
+}
