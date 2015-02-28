@@ -33,7 +33,7 @@
         <ul>
           <li class="mod-frame-li pos-inline-block-y-center" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
             <div class="mod-frame-li-img-wrap">
-              <img ng-src="{{frame.image}}" alt="">
+              <img ng-src="{{frame.images.preview[0].image}}" alt="">
             </div>
             <span class="mod-frame-li-name">{{frame.name}}</span>
           </li>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="pg-export-preview-frame">
-            <img ng-src="{{selectedFrame.image}}" image-load="updateFrameRatio($event)" alt="">
+            <img ng-src="{{selectedFrame.images.preview[0].image}}" image-load="updateFrameRatio($event)" alt="">
           </div>
 
           <a class="ui-btn">Add To Set</a>

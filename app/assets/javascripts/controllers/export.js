@@ -41,10 +41,10 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     if (!$scope.selectedFrame || !$scope.frameRatio) return {};
 
     return {
-      left: Math.floor($scope.selectedFrame.left * $scope.frameRatio),
-      top: Math.floor($scope.selectedFrame.top * $scope.frameRatio),
-      height: Math.round($scope.selectedFrame.height * $scope.frameRatio) + 1,
-      width: Math.round($scope.selectedFrame.width * $scope.frameRatio) + 1
+      left: Math.floor($scope.selectedFrame.images.preview[0].left * $scope.frameRatio),
+      top: Math.floor($scope.selectedFrame.images.preview[0].top * $scope.frameRatio),
+      height: Math.round($scope.selectedFrame.images.preview[0].height * $scope.frameRatio) + 1,
+      width: Math.round($scope.selectedFrame.images.preview[0].width * $scope.frameRatio) + 1
     };
   }
 

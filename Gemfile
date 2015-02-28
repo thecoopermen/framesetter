@@ -7,6 +7,8 @@ gem 'unicorn'
 gem 'paperclip', '~> 4.2'
 gem 'fog', '~> 1.28'
 gem 'rmagick', '~> 2.13'
+gem 'chunky_png', '~> 1.3'
+gem 'oily_png', '~> 1.1'
 gem 'jbuilder', '~> 2.0'
 
 gem 'sass-rails', '~> 5.0'

@@ -25,16 +25,16 @@
         <label><%= degrees %>&deg;</label>
         <div class="form-inline">
           <%= f.label :"#{type}_#{degrees}_left", 'Left' %>
-          <%= f.text_field :"#{type}_#{degrees}_left", class: 'form-control', style: 'width: 75px' %>
+          <%= f.text_field :"#{type}_#{degrees}_left", class: 'form-control', style: 'width: 75px', type: 'number' %>
 
           <%= f.label :"#{type}_#{degrees}_top", 'Top' %>
-          <%= f.text_field :"#{type}_#{degrees}_top", class: 'form-control', style: 'width: 75px' %>
+          <%= f.text_field :"#{type}_#{degrees}_top", class: 'form-control', style: 'width: 75px', type: 'number' %>
 
           <%= f.label :"#{type}_#{degrees}_width", 'Width' %>
-          <%= f.text_field :"#{type}_#{degrees}_width", class: 'form-control', style: 'width: 75px' %>
+          <%= f.text_field :"#{type}_#{degrees}_width", class: 'form-control', style: 'width: 75px', type: 'number' %>
 
           <%= f.label :"#{type}_#{degrees}_height", 'Height' %>
-          <%= f.text_field :"#{type}_#{degrees}_height", class: 'form-control', style: 'width: 75px' %>
+          <%= f.text_field :"#{type}_#{degrees}_height", class: 'form-control', style: 'width: 75px', type: 'number' %>
         </div>
       </div>
     <% end %>
