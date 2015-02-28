@@ -1,5 +1,11 @@
-angular.module('app').controller('UploadController', function($scope, $element, $http, $filter) {
+angular.module('app').controller('CompsController', function($scope, $element, $http, $filter) {
   $scope.queue = []
+  $scope.comps = []
+
+  $http.get('/comps').then(function(response) {
+    console.log(response.data);
+    $scope.comps = response.data.comps;
+  });
 
   $scope.selectFiles = function($event) {
     $event.preventDefault();
