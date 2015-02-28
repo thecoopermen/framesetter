@@ -5,7 +5,7 @@
       <ul class="pg-export-comps" ng-cloak>
         <li class="pg-export-comp-wrap" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
           <div class="pg-export-comp">
-            <img ng-src="{{comp.image}}" alt="">
+            <img ng-src="{{comp.image.thumbnail}}" alt="">
           </div>
         </li>
       </ul>
@@ -44,7 +44,7 @@
         <h5 class="pg-export-preview-help-text">Drag your comp to choose its position</h5>
         <div class="pg-export-preview">
           <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
-            <img ng-src="{{selectedComp.image}}" alt="">
+            <img ng-src="{{selectedComp.image.original}}" alt="">
           </div>
 
           <div class="pg-export-preview-frame">

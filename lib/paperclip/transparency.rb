@@ -6,8 +6,8 @@ class Paperclip::Transparency < Paperclip::Processor
     if attachment.instance.respond_to?(:"#{prefix}left")
       # Magick::Image.read(file.path).first.channel(Magick::AlphaChannel).each_pixel do |pixel, c, r|
       chunky = ChunkyPNG::Image.from_file(file.path)
-      chunky.height.times do |c|
-        chunky.row(c).each_with_index do |pixel, r|
+      chunky.height.times do |r|
+        chunky.row(r).each_with_index do |pixel, c|
           if ChunkyPNG::Color.a(pixel) < 128
             if area = find_area(c, r)
               area[1] = [c, r]
