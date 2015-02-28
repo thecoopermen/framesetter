@@ -28,6 +28,13 @@
   line-height: $space*6;
 }
 
+.ui-btn-set-right {
+  > * {
+    display: inline-block;
+    margin-left: $space*2;
+  }
+}
+
 .ui-btn-set-left {
   > * {
     margin-right: $space*2;

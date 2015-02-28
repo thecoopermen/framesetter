@@ -27,3 +27,11 @@
   float: left;
   padding-left: $l-gutter;
 }
+
+@for $i from 1 to 4 {
+  .l-tiles-#{$i} {
+    float: left;
+    width: 100%/$i;
+  }
+}
+

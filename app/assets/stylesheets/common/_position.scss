@@ -10,3 +10,11 @@
 .pos-clearfix {
   @include clearfix();
 }
+
+.pos-left {
+  float: left;
+}
+
+.pos-right {
+  float: right;
+}

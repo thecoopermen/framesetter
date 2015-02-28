@@ -1,0 +1,112 @@
+.mod-comps {
+  margin-left: -#{$space*2};
+}
+
+.mod-comp {
+  width: 20%;
+  float: left;
+  padding-left: $space*2;
+  padding-bottom: $space*2;
+
+  &.active {
+    .mod-comp-mask {
+      opacity: 1;
+    }
+    .mod-comp-check {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .mod-comp-mask,
+    .mod-comp-actions {
+      opacity: 1;
+    }
+  }
+}
+
+.mod-comp-name {
+  @include truncate;
+}
+
+.mod-comp-img-wrap,
+.mod-comp-mask {
+  @include border-top-left-radius($ui-border-radius);
+  @include border-top-right-radius($ui-border-radius);
+}
+
+.mod-comp-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 18rem;
+}
+
+.mod-comp-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba($color-black, 0.5);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  @include transition(0.15s);
+
+  > * {
+    display: inline-block;
+  }
+
+}
+
+.mod-comp-actions {
+  opacity: 0;
+  position: absolute;
+  padding: $space;
+  top: 0;
+  right: 0;
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  a {
+    color: $color-white;
+  }
+
+  .icon-cross {
+    font-size: 2.7rem;
+  }
+
+  .icon-pencil {
+    font-size: 1.8rem;
+  }
+}
+
+.mod-comp-actions a {
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.mod-comp-check {
+  color: $color-white;
+  font-size: 5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+  opacity: 0.5;
+}
+
+.mod-comp-info {
+  padding: $space*2;
+  background-color: $color-white;
+  border: $border;
+  border-top: 0;
+  @include border-bottom-left-radius($ui-border-radius);
+  @include border-bottom-right-radius($ui-border-radius);
+}
+

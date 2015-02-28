@@ -1,1 +1,102 @@
-comps#index
+<header class="s-page-header">
+  <h2 class="pos-left">Your Comps</h2>
+
+  <ul class="ui-btn-set-right pos-right">
+    <li>
+      <a class="ui-btn ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
+    </li>
+
+    <li>
+      <%= link_to 'Get Framing', new_export_path, class: 'ui-btn', :'ng-class' => '{disabled: !readyToExport()}', :'ng-click' => 'guardExport($event)' %>
+    </li>
+  </ul>
+</header>
+
+<div ng-controller="UploadController">
+  <div>
+    <ul class="mod-comps">
+      <li class="mod-comp active">
+        <div class="mod-comp-img-wrap">
+          <%= image_tag('sample-comp.png') %>
+          <div class="mod-comp-mask">
+            <div class="mod-comp-check-wrap">
+              <div class="mod-comp-check">
+                <i class="icon-check"></i>
+              </div>
+            </div>
+
+            <ul class="mod-comp-actions">
+              <li>
+                <a><i class="icon-pencil"></i></a>
+              </li>
+              <li>
+                <a><i class="icon-cross"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mod-comp-info">
+          <h5 class="mod-comp-name">Name that is pretty long</h5>
+        </div>
+      </li>
+
+      <li class="mod-comp">
+        <div class="mod-comp-img-wrap">
+          <%= image_tag('sample-comp.png') %>
+          <div class="mod-comp-mask">
+            <div class="mod-comp-check-wrap">
+              <div class="mod-comp-check">
+                <i class="icon-check"></i>
+              </div>
+            </div>
+
+            <ul class="mod-comp-actions">
+              <li>
+                <a><i class="icon-pencil"></i></a>
+              </li>
+              <li>
+                <a><i class="icon-cross"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mod-comp-info">
+          <h5 class="mod-comp-name">Name that is pretty long</h5>
+        </div>
+      </li>
+    </ul>
+    <%= form_for Comp.new, data: { file_upload: 'options' } do |f| %>
+      <%= f.file_field :image, multiple: true, style: 'display: none;' %>
+      <div class="ui-btn-set-left">
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mod-white" ng-cloak ng-repeat="file in queue | filter: {hidden: undefined}">
+    <ul>
+      <li class="pg-new-comps-comp">
+        <div class="pg-new-comps-img-wrap">
+          <div class="preview" data-file-upload-preview="file"></div>
+        </div>
+        <div class="pg-new-comps-info">
+          <header>
+            <h5>File Name</h5>
+            <p>{{file.name}}</p>
+          </header>
+
+          <div class="mod-progress-bar" data-file-upload-progress="file.$progress()">
+            <div class="mod-progress-bar-filled" ng-style="{width: num + '%'}"></div>
+          </div>
+
+          <div class="pg-new-comps-actions">
+            <button class="ui-btn-large ui-btn-secondary" ng-click="remove($event, file)">
+              <i class="icon-trash"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

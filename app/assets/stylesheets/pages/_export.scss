@@ -46,6 +46,7 @@
   margin-left: $pg-export-frames-width + $pg-export-comps-width;
   padding: $space*4 $space*8;
   border-left: $border;
+  margin-bottom: $space*4;
 
   &:before {
     content: '';
