@@ -1,11 +1,18 @@
-<%= form_tag login_path do %>
+<div class="pg-auth-wrap mod-white">
+  <h1>Log In</h1>
+  <%= form_tag login_path do %>
   <%= label_tag :email %>
   <%= text_field_tag :email, params[:email] %>
 
   <%= label_tag :password %>
   <%= password_field_tag :password, params[:password] %>
 
-  <button type="submit">Log in</button>
-<% end %>
+  <footer class="pg-auth-footer">
+    <button type="submit" class="ui-btn-large pos-stretch">Log in</button>
+  </footer>
+  <% end %>
+</div>
 
-<%= link_to 'Register', signup_path %>
+<footer class="pg-auth-links">
+    <span class="type-secondary">Don't have an account?</span> <%= link_to 'Sign Up', signup_path %>
+</footer>

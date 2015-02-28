@@ -1,0 +1,23 @@
+.pg-auth-wrap {
+  width: 38rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+  padding: $space*4;
+  margin-bottom: $space*2;
+
+  label {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.pg-auth-footer {
+  margin-top: $space;
+}
+
+.pg-auth-links {
+  text-align: center;
+}

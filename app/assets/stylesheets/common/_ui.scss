@@ -7,7 +7,7 @@
   font-weight: 700;
   height: $space*4;
   line-height: $space*4;
-  padding: 0 1.5em;
+  padding: 0 1.25em;
   @include border-radius($ui-border-radius);
   text-align: center;
 
@@ -24,8 +24,8 @@
 .ui-btn-large {
   @extend .ui-btn;
   @include type-size(large);
-  height: $space*6;
-  line-height: $space*6;
+  height: $space*5;
+  line-height: $space*5;
 }
 
 .ui-btn-set-right {

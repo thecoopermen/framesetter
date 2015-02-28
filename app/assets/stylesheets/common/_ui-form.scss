@@ -1,0 +1,17 @@
+label {
+  margin-bottom: $space/2;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  padding: $space;
+  background-color: $color-white;
+  @include border-radius($ui-border-radius);
+  border: $border;
+  margin-bottom: $space*2;
+
+  &:focus {
+    outline: 0;
+  }
+}

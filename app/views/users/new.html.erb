@@ -1,9 +1,18 @@
-<%= form_for @user, url: signup_path do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+<div class="pg-auth-wrap mod-white">
+  <h1>Sign Up</h1>
+  <%= form_for @user, url: signup_path do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-  <%= f.submit %>
-<% end %>
+    <footer class="pg-auth-footer">
+      <%= f.submit "Sign Up", class: 'ui-btn-large' %>
+    </footer>
+  <% end %>
+</div>
+
+<footer class="pg-auth-links">
+    <span class="type-secondary">Already have an account?</span> <%= link_to 'Log In', login_path %>
+</footer>
