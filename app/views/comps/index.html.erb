@@ -49,26 +49,11 @@
     <% end %>
   </div>
 
-  <div class="mod-white" ng-cloak ng-switch="false" ng-repeat="file in queue | filter: {hidden: undefined}">
+  <div class="mod-up-down" ng-cloak  ng-show="inProgress()" >
     <ul>
-      <li class="pg-new-comps-comp">
-        <div class="pg-new-comps-img-wrap">
-          <div class="preview" data-file-upload-preview="file"></div>
-        </div>
-        <div class="pg-new-comps-info">
-          <header>
-            <h5>File Name</h5>
-            <p>{{file.name}}</p>
-          </header>
-
-          <div class="mod-progress-bar" data-file-upload-progress="file.$progress()">
-            <div class="mod-progress-bar-filled" ng-style="{width: num + '%'}"></div>
-          </div>
-
-          <div class="pg-new-comps-actions">
-            <button class="ui-btn-large ui-btn-secondary" ng-click="remove($event, file)">
-              <i class="icon-trash"></i>
-            </button>
+      <li class="mod-up-down-file" ng-repeat="file in queue | filter: {hidden: undefined}">
+        <div class="mod-up-down-file-name">{{file.name}}</div><div class="mod-up-down-progress" data-file-upload-progress="file.$progress()">
+          <div class="mod-up-down-progress-filled" ng-style="{width: num + '%'}">
           </div>
         </div>
       </li>

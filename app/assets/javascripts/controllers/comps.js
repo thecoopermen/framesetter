@@ -3,7 +3,6 @@ angular.module('app').controller('CompsController', function($scope, $element, $
   $scope.comps = []
 
   $http.get('/comps').then(function(response) {
-    console.log(response.data);
     $scope.comps = response.data.comps;
   });
 
@@ -20,19 +19,27 @@ angular.module('app').controller('CompsController', function($scope, $element, $
 
   $scope.readyToExport = function() {
     if ($scope.queue.length == 0) return false;
+    return !$scope.inProgress();
+  }
 
+  $scope.inProgress = function() {
     var incomplete = $filter('filter')($scope.queue, function(file, i) {
       return file.hidden || file.$state() != "resolved"
     });
-    return incomplete.length == 0;
+    return incomplete.length > 0;
   }
 
   $scope.guardExport = function($event) {
     if (!$scope.readyToExport()) $event.preventDefault();
   }
 
-  $scope.$on('fileuploadadd', function($scope, file) {
+  $scope.$on('fileuploadadd', function($uploadScope, file) {
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      $scope.comps.unshift({name: file.files[0].name, image: {thumbnail: reader.result}});
+    }
     file.submit();
+    reader.readAsDataURL(file.files[0]);
   });
 
   $scope.$on('fileuploaddone', function($scope, upload) {
