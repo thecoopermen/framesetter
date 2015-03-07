@@ -36,13 +36,16 @@ angular.module('app').controller('CompsController', function($scope, $element, $
   $scope.$on('fileuploadadd', function($uploadScope, file) {
     var reader = new FileReader();
     reader.onloadend = function() {
-      $scope.comps.unshift({name: file.files[0].name, image: {thumbnail: reader.result}});
+      var comp = {uploading: true, name: file.files[0].name, image: {thumbnail: reader.result}}
+      file.files[0].comp = comp;
+      $scope.comps.unshift(comp);
     }
     file.submit();
     reader.readAsDataURL(file.files[0]);
   });
 
   $scope.$on('fileuploaddone', function($scope, upload) {
-    upload.files[0].result = upload.result
+    upload.files[0].comp.uploading = false;
+    upload.files[0].result = upload.result;
   });
 });

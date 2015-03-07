@@ -15,11 +15,11 @@
 
   <div>
     <ul class="mod-comps">
-      <li class="mod-comp active" ng-cloak ng-repeat="comp in comps">
+      <li class="mod-comp active" ng-cloak ng-repeat="comp in comps" ng-class="{disabled: comp.uploading}" ng-click="comp.selected = !comp.selected">
         <div class="mod-comp-img-wrap">
           <img ng-src="{{comp.image.thumbnail}}" alt="">
           <div class="mod-comp-mask">
-            <div class="mod-comp-check-wrap">
+            <div class="mod-comp-check-wrap" ng-show="comp.selected">
               <div class="mod-comp-check">
                 <i class="icon-check"></i>
               </div>
