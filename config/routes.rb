@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :comps, only: [ :index, :new, :create, :destroy ]
-  resources :exports, only: [ :index, :new, :create, :edit, :update ]
+  resources :exports, only: [ :index, :create, :show, :update ]
   resources :framesets, only: [ :index ]
 
   get '/signup', to: 'users#new'

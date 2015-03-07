@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222233831) do
+ActiveRecord::Schema.define(version: 20150307215025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 20150222233831) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "export_comps", force: :cascade do |t|
+    t.integer  "export_id"
+    t.integer  "comp_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "export_comps", ["comp_id"], name: "index_export_comps_on_comp_id", using: :btree
+  add_index "export_comps", ["export_id"], name: "index_export_comps_on_export_id", using: :btree
+
+  create_table "exports", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "exports", ["user_id"], name: "index_exports_on_user_id", using: :btree
 
   create_table "frames", force: :cascade do |t|
     t.string   "name"
@@ -98,4 +116,7 @@ ActiveRecord::Schema.define(version: 20150222233831) do
     t.datetime "updated_at",          null: false
   end
 
+  add_foreign_key "export_comps", "comps"
+  add_foreign_key "export_comps", "exports"
+  add_foreign_key "exports", "users"
 end

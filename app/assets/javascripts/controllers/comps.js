@@ -17,9 +17,14 @@ angular.module('app').controller('CompsController', function($scope, $element, $
     $http.delete('/comps/' + comp.id);
   }
 
+  $scope.selectedComps = function() {
+    return $scope.comps.filter(function(comp) {
+      return comp.selected;
+    });
+  }
+
   $scope.readyToExport = function() {
-    if ($scope.queue.length == 0) return false;
-    return !$scope.inProgress();
+    return !$scope.inProgress() && $scope.selectedComps().length > 0;
   }
 
   $scope.inProgress = function() {
@@ -29,8 +34,16 @@ angular.module('app').controller('CompsController', function($scope, $element, $
     return incomplete.length > 0;
   }
 
-  $scope.guardExport = function($event) {
-    if (!$scope.readyToExport()) $event.preventDefault();
+  $scope.export = function($event) {
+    $event.preventDefault();
+    if (!$scope.readyToExport()) return;
+
+    var ids = $scope.selectedComps().map(function(comp) {
+      return comp.id;
+    });
+    $http.post('/exports', {export: {comp_ids: ids}}).then(function(response) {
+      document.location.href = '/exports/' + response.data.id;
+    });
   }
 
   $scope.$on('fileuploadadd', function($uploadScope, file) {
