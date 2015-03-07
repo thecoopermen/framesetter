@@ -1,7 +1,7 @@
 class Admin::FramesController < Admin::ApplicationController
 
   def index
-    @frames = frameset.frames
+    @frames = frameset.frames.order('name ASC')
   end
 
   def new
@@ -24,7 +24,7 @@ class Admin::FramesController < Admin::ApplicationController
   def update
     @frame = frameset.frames.find(params[:id])
     if @frame.update_attributes(frame_params)
-      redirect_to admin_frameset_frames_path(frameset), notice: 'Frame successfully updated'
+      redirect_to edit_admin_frameset_frame_path(frameset, @frame), notice: 'Frame successfully updated'
     else
       render :new
     end

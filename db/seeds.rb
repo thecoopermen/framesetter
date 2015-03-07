@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Dir[File.join(File.dirname(__FILE__), 'frames', '**')].each do |dir|
+  frameset = Frameset.where(name: File.basename(dir).titleize).first_or_create!
+  puts "=> processing '#{frameset.name}'"
+  Dir[File.join(dir, '*')].each do |file|
+    frame = frameset.frames.where(name: File.basename(file, '.*').titleize).first_or_create!
+    puts "  -> processing '#{frame.name}'"
+    frame.update_attribute(:image, File.open(file))
+  end
+end

@@ -1,6 +1,14 @@
+<%= link_to "<< Back to #{@frameset.name}", admin_frameset_frames_path(@frameset) %>
+
 <h1>Editing <i><%= @frame.name %></i></h1>
 
 <%= form_for [:admin, @frameset, @frame] do |f| %>
+  <% if @frame.image.present? %>
+    <div class="form-group">
+      <%= image_tag @frame.image.url(:preview_0) %>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -9,6 +17,10 @@
   <div class="form-group">
     <%= f.label :image %>
     <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 
   <div class="page-header">
@@ -38,9 +50,9 @@
         </div>
       </div>
     <% end %>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 <% end %>
