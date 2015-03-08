@@ -51,7 +51,7 @@
     <% end %>
   </div>
 
-  <div class="mod-up-down" ng-cloak  ng-show="inProgress()" >
+  <div class="mod-up-down" ng-cloak ng-show="inProgress()" ng-animate>
     <ul>
       <li class="mod-up-down-file" ng-repeat="file in queue | filter: {hidden: undefined}">
         <div class="mod-up-down-file-name">{{file.name}}</div><div class="mod-up-down-progress" data-file-upload-progress="file.$progress()">

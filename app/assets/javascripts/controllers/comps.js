@@ -38,10 +38,10 @@ angular.module('app').controller('CompsController', function($scope, $element, $
     $event.preventDefault();
     if (!$scope.readyToExport()) return;
 
-    var ids = $scope.selectedComps().map(function(comp) {
-      return comp.id;
+    var comps_attributes = $scope.selectedComps().map(function(comp) {
+      return { comp_id: comp.id };
     });
-    $http.post('/exports', {export: {comp_ids: ids}}).then(function(response) {
+    $http.post('/exports', {export: {export_comps_attributes: comps_attributes}}).then(function(response) {
       document.location.href = '/exports/' + response.data.id;
     });
   }

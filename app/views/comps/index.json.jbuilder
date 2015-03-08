@@ -1,7 +1,1 @@
-json.comps @comps do |comp|
-  json.(comp, :id, :name, :created_at, :updated_at)
-  json.image {
-    json.original comp.image.url(:original)
-    json.thumbnail comp.image.url(:thumbnail)
-  }
-end
+json.comps @comps, partial: 'comps/comp', as: :comp

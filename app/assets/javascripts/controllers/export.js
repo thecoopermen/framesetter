@@ -10,7 +10,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     if ($scope.framesets.length > 0) $scope.selectFrameset($scope.framesets[0]);
   });
 
-  $http.get('/comps').then(function(response) {
+  $http.get(document.location.href).then(function(response) {
     $scope.comps = response.data.comps;
     if ($scope.comps.length > 0) $scope.selectComp($scope.comps[0]);
   });
