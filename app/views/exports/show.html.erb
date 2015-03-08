@@ -44,12 +44,14 @@
         <h5 class="pg-export-preview-help-text">Drag your comp to choose its position</h5>
         <div class="pg-export-preview">
           <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
-            <img ng-src="{{selectedComp.image.original}}" alt="">
+            <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">
           </div>
 
-          <div class="pg-export-preview-frame">
+          <div class="pg-export-preview-frame" >
             <img ng-src="{{selectedFrame.images.preview[0].image}}" image-load="updateFrameRatio($event)" alt="">
           </div>
+
+          <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()" ng-mousedown="startDrag($event)" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)"></div>
 
           <a class="ui-btn">Add To Set</a>
           <a class="ui-btn">Download X Framed Comps</a>
