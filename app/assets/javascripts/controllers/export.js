@@ -4,6 +4,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   $scope.selectedFrameset = null;
   $scope.selectedComp = null;
   $scope.showFramesets = false;
+  $scope.scaledHeight = null;
 
   $scope.offset = 0;
   $scope.dragging = false;
@@ -19,8 +20,21 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     if ($scope.comps.length > 0) $scope.selectComp($scope.comps[0]);
   });
 
+  function updateScaledHeight() {
+    $scope.scaledHeight = null;
+    if ($scope.selectedComp && $scope.selectedFrame) {
+      var comp = new Image();
+      comp.src = $scope.selectedComp.image.original;
+
+      comp.onload = function() {
+        $scope.scaledHeight = comp.height * ($scope.selectedFrame.images.preview[0].width / comp.width);
+      };
+    }
+  }
+
   $scope.selectComp = function(comp) {
     $scope.selectedComp = comp;
+    updateScaledHeight();
   }
 
   $scope.selectFrameset = function(frameset) {
@@ -31,6 +45,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
 
   $scope.selectFrame = function(frame) {
     $scope.selectedFrame = frame;
+    updateScaledHeight();
   }
 
   $scope.updateFrameRatio = function($event) {
@@ -45,8 +60,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     if ($event.button == 0) {
       $event.preventDefault();
       $scope.dragging = true;
-      $scope.dragStart = [$event.pageX,$event.pageY];
-      $scope.dragEnd = [$event.pageX,$event.pageY];
+      $scope.dragStart = $scope.dragEnd = [$event.pageX,$event.pageY];
     }
   }
 
@@ -79,14 +93,19 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   }
 
   $scope.compStyle = function() {
+    if (!$scope.scaledHeight) return { position: 'relative', top: 0 };
+
     var dragOffset = 0;
     if ($scope.dragging) {
-      dragOffset = Math.max(0, $scope.dragStart[1] - $scope.dragEnd[1]);
+      dragOffset = $scope.dragStart[1] - $scope.dragEnd[1];
     }
+
+    var maxScroll = ($scope.scaledHeight - $scope.selectedFrame.images.preview[0].height) * -1,
+        newTop = ($scope.offset + dragOffset) * -1;
 
     return {
       position: 'relative',
-      top: ($scope.offset + dragOffset) * -1
+      top: Math.max(maxScroll, Math.min(0, newTop))
     };
   }
 
