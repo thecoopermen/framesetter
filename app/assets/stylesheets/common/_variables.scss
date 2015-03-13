@@ -5,9 +5,10 @@ $g-header-height: $space*7;
 $l-width: 105rem;
 $l-min-width: 80rem;
 $l-gutter: $space*3;
-$color-accent: #3497db;
-$color-highlight: rgba($color-accent, 0.15);
-$color-link: $color-accent;
+$color-primary: #4395cc;
+$color-accent: #66be5a;
+$color-highlight: rgba($color-primary, 0.15);
+$color-link: $color-primary;
 $color-type: #290733;
 $color-type-light: #a1989d;
 $color-white: #fff;
@@ -41,3 +42,5 @@ $pg-new-comps-img-width: 20%;
 
 $pg-export-frames-width: 22rem;
 $pg-export-comps-width: 14.4rem;
+
+$mod-frame-width: 20%;

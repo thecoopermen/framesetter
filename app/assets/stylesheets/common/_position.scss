@@ -22,3 +22,10 @@
 .pos-stretch {
   width: 100%;
 }
+
+.pos-v-align-contents {
+  > * {
+    vertical-align: middle;
+    display: inline-block;
+  }
+}

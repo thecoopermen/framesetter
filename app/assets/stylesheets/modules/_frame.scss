@@ -7,9 +7,10 @@
 }
 
 .mod-frame-li {
-  padding: 0 $space*2;
+  padding: $space*2;
   height: $space*8;
   border-bottom: $border-style rgba($color-black, 0.08);
+  @include clearfix();
 
   &:last-child {
     border-bottom: 0;
@@ -18,16 +19,22 @@
 
 .mod-frame-li-img-wrap {
   text-align: left;
-  width: $space*6;
-  height: $space*4;
+  width: $mod-frame-width;
+  float: left;
   display: inline-block;
   vertical-align: middle;
+
+  img {
+    display: block;
+  }
 }
 
 .mod-frame-li-name {
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: $space;
+  display: block;
+  float: left;
+  padding-left: $space*2;
+  width: 100% - $mod-frame-width;
+  line-height: 1.2em;
 }
 
 

@@ -1,5 +1,5 @@
 .ui-btn {
-  background-color: $color-accent;
+  background-color: $color-primary;
   border: 0;
   color: $color-white;
   display: inline-block;
@@ -12,7 +12,7 @@
   text-align: center;
 
   &:hover {
-    background-color: darken($color-accent, 10);
+    background-color: darken($color-primary, 10);
     color: $color-white;
   }
 }
@@ -44,5 +44,5 @@
 .ui-btn-stroked {
   @extend .ui-btn;
   background-color: transparent;
-  border: $border-style $color-accent;
+  border: $border-style $color-primary;
 }

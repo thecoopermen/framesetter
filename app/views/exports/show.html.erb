@@ -41,7 +41,8 @@
       </div>
 
       <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
-        <h5 class="pg-export-preview-help-text">Drag your comp to choose its position</h5>
+        <h5 class="pg-export-preview-help-text pos-v-align-contents"><i class="icon-hand s1-right"></i><span>Drag your comp to choose its position</span></h5>
+        <button class="ui-btn pos-v-align-contents"><i class="icon-cw"></i> Rotate</button>
         <div class="pg-export-preview">
           <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
             <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">

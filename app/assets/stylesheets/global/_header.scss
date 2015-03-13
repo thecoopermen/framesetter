@@ -1,23 +1,23 @@
 .g-header {
-  background-color: $color-accent;
+  background-color: $color-primary;
   @include clearfix();
 }
 
 .g-header-logo {
   float: left;
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: $g-header-height;
-  font-weight: bold;
 }
 
 .g-header-nav {
+  @include type-size(small);
   float: right;
-  font-weight: bold;
+
   ul > * {
     line-height: $g-header-height;
     display: inline-block;
     vertical-align: middle;
-    margin-left: $space*2;
+    margin-left: $space*3;
   }
 }
 

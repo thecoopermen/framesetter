@@ -13,4 +13,8 @@
   .s#{$i} {
     margin-bottom: $space*$i;
   }
+
+  .s#{$i}-right {
+    margin-right: $space*$i;
+  }
 }
