@@ -1,9 +1,6 @@
 .pg-export {
   position: relative;
-  background-color: $color-grey-light-med;
-  border: $border;
   @include clearfix();
-  @include border-radius($ui-border-radius);
 }
 
 .pg-export-comps,
@@ -26,7 +23,6 @@
 
 .pg-export-comp-wrap {
   padding: $space*2;
-  border-bottom: $border-light;
   @include border-top-left-radius($ui-border-radius);
 
   &:last-child {
@@ -47,6 +43,7 @@
   padding: $space*4 $space*8;
   border-left: $border;
   margin-bottom: $space*4;
+  width: $pg-export-preview-width;
 
   &:before {
     content: '';
@@ -88,4 +85,8 @@
   position: absolute;
   top: 0;
   overflow: hidden;
+}
+
+.pg-export-framed-comps {
+  margin-top: $space*2;
 }

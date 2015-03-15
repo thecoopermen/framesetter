@@ -18,20 +18,25 @@
   padding-left: $l-gutter;
 }
 
-.l-tiles-wrap {
+.l-tile-wrap {
   margin-left: -#{$l-gutter};
+  margin-bottom: -#{$l-gutter};
+  @include clearfix();
 }
 
-.l-tiles-2 {
-  width: 50%;
-  float: left;
+.l-tile-content {
   padding-left: $l-gutter;
+  padding-bottom: $l-gutter;
 }
 
-@for $i from 1 to 4 {
-  .l-tiles-#{$i} {
+@for $i from 1 to 10 {
+  .l-tile-#{$i} {
     float: left;
     width: 100%/$i;
+
+    &:nth-child(#{$i + 1}) {
+      clear: both;
+    }
   }
 }
 

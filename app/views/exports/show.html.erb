@@ -1,12 +1,13 @@
 <div ng-controller="ExportController">
   <h2 class="s-page-header">Export Framed Comps</h2>
-    <div class="pg-export">
+    <div class="pg-export mod-white no-padding">
 
       <ul class="pg-export-comps" ng-cloak>
         <li class="pg-export-comp-wrap" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
           <div class="pg-export-comp">
             <img ng-src="{{comp.image.thumbnail}}" alt="">
           </div>
+          <div class="type-small">{{comp.name}}</div>
         </li>
       </ul>
 
@@ -56,6 +57,41 @@
 
           <a class="ui-btn">Add To Set</a>
           <a class="ui-btn">Download X Framed Comps</a>
+        </div>
+
+
+        <div class="pg-export-framed-comps">
+          <h5>Framed Comps</h5>
+
+          <ul class="l-tile-wrap">
+            <li class="l-tile-3">
+            <div class="l-tile-content">
+              <%= image_tag('iheartvideo-feature.png') %>
+              <span  class="type-small">comp-name-frame-name.ext</span>
+            </div>
+            </li>
+
+            <li class="l-tile-3">
+            <div class="l-tile-content">
+              <%= image_tag('iheart-feature.png') %>
+              <span  class="type-small">comp-name-frame-name.ext</span>
+            </div>
+            </li>
+
+            <li class="l-tile-3">
+            <div class="l-tile-content">
+              <%= image_tag('iheartvideo-feature.png') %>
+              <span  class="type-small">comp-name-frame-name.ext</span>
+            </div>
+            </li>
+
+            <li class="l-tile-3">
+            <div class="l-tile-content">
+              <%= image_tag('iheart-feature.png') %>
+              <span  class="type-small">comp-name-frame-name.ext</span>
+            </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

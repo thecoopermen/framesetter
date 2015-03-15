@@ -7,9 +7,7 @@
 }
 
 .mod-frame-li {
-  padding: $space*2;
-  height: $space*8;
-  border-bottom: $border-style rgba($color-black, 0.08);
+  padding: $space $space*2;
   @include clearfix();
 
   &:last-child {
