@@ -5,6 +5,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   $scope.selectedComp = null;
   $scope.showFramesets = false;
   $scope.scaledHeight = null;
+  $scope.rotation = 0;
 
   $scope.offset = 0;
   $scope.dragging = false;
@@ -27,7 +28,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
       comp.src = $scope.selectedComp.image.original;
 
       comp.onload = function() {
-        $scope.scaledHeight = comp.height * ($scope.selectedFrame.images.preview[0].width / comp.width);
+        $scope.scaledHeight = comp.height * ($scope.selectedFrame.images.preview[$scope.rotation].width / comp.width);
       };
     }
   }
@@ -37,10 +38,15 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     updateScaledHeight();
   }
 
+  $scope.rotate = function($event) {
+    $event.preventDefault();
+    $scope.rotation = ($scope.rotation == 270) ? 0 : $scope.rotation + 90;
+  }
+
   $scope.selectFrameset = function(frameset) {
     if (frameset == $scope.selectedFrameset) return;
     $scope.selectedFrameset = frameset;
-    if (frameset.frames.length > 0) $scope.selectFrame($scope.selectedFrameset.frames[0]);
+    if (frameset.frames.length > 0) $scope.selectFrame($scope.selectedFrameset.frames[$scope.rotation]);
   }
 
   $scope.selectFrame = function(frame) {
@@ -77,10 +83,10 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     if (!$scope.selectedFrame) return {};
 
     return {
-      left: $scope.selectedFrame.images.preview[0].left,
-      top: $scope.selectedFrame.images.preview[0].top,
-      height: $scope.selectedFrame.images.preview[0].height,
-      width: $scope.selectedFrame.images.preview[0].width
+      left: $scope.selectedFrame.images.preview[$scope.rotation].left,
+      top: $scope.selectedFrame.images.preview[$scope.rotation].top,
+      height: $scope.selectedFrame.images.preview[$scope.rotation].height,
+      width: $scope.selectedFrame.images.preview[$scope.rotation].width
     };
   }
 
@@ -92,7 +98,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
       dragOffset = $scope.dragStart[1] - $scope.dragEnd[1];
     }
 
-    var maxScroll = ($scope.scaledHeight - $scope.selectedFrame.images.preview[0].height) * -1,
+    var maxScroll = ($scope.scaledHeight - $scope.selectedFrame.images.preview[$scope.rotation].height) * -1,
         newTop = ($scope.offset + dragOffset) * -1;
 
     return {

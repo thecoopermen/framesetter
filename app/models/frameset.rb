@@ -1,5 +1,5 @@
 class Frameset < ActiveRecord::Base
-  has_many :frames
+  has_many :frames, dependent: :destroy
 
   has_attached_file :icon
 
