@@ -48,14 +48,6 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     updateScaledHeight();
   }
 
-  $scope.updateFrameRatio = function($event) {
-    var img = $($event.target),
-        frame = new Image();
-
-    frame.src = img.attr('src');
-    $scope.frameRatio = 524 / frame.width;
-  }
-
   $scope.startDrag = function($event) {
     if ($event.button == 0) {
       $event.preventDefault();
@@ -82,13 +74,13 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   }
 
   $scope.compWrapperStyle = function() {
-    if (!$scope.selectedFrame || !$scope.frameRatio) return {};
+    if (!$scope.selectedFrame) return {};
 
     return {
-      left: Math.floor($scope.selectedFrame.images.preview[0].left * $scope.frameRatio),
-      top: Math.floor($scope.selectedFrame.images.preview[0].top * $scope.frameRatio),
-      height: Math.round($scope.selectedFrame.images.preview[0].height * $scope.frameRatio) + 1,
-      width: Math.round($scope.selectedFrame.images.preview[0].width * $scope.frameRatio) + 1
+      left: $scope.selectedFrame.images.preview[0].left,
+      top: $scope.selectedFrame.images.preview[0].top,
+      height: $scope.selectedFrame.images.preview[0].height,
+      width: $scope.selectedFrame.images.preview[0].width
     };
   }
 
