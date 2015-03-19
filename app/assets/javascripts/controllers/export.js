@@ -1,6 +1,7 @@
 angular.module('app').controller('ExportController', function($scope, $http, $window) {
   $scope.comps = [];
   $scope.framesets = [];
+  $scope.exports = [];
   $scope.selectedFrameset = null;
   $scope.selectedComp = null;
   $scope.showFramesets = false;
@@ -113,4 +114,30 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   }
   $(window).on('click', function() { $scope.showFramesets = false; $scope.$apply(); });
 
+  $scope.addExport = function($event) {
+    $event.preventDefault();
+
+    $scope.exports.push({
+      comp: $scope.selectedComp,
+      frame: $scope.selectedFrame,
+      rotation: $scope.rotation,
+      offset: $scope.offset
+    });
+  }
+
+  $scope.exportCompStyle = function(e) {
+    return {
+      position: 'relative',
+      overflow: 'hidden',
+      left: e.frame.images.thumbnail[e.rotation].left,
+      top: e.frame.images.thumbnail[e.rotation].top,
+      height: e.frame.images.thumbnail[e.rotation].height,
+      width: e.frame.images.thumbnail[e.rotation].width,
+    };
+  }
+
+  $scope.exportFrameStyle = function(e) {
+    return {
+    };
+  }
 });

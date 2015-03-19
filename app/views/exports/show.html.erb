@@ -56,7 +56,7 @@
             <img ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
           </div>
 
-          <a class="ui-btn">Add To Set</a>
+          <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
           <a class="ui-btn">Download X Framed Comps</a>
         </div>
 
@@ -65,32 +65,17 @@
           <h5>Framed Comps</h5>
 
           <ul class="l-tile-wrap">
-            <li class="l-tile-3">
-            <div class="l-tile-content">
-              <%= image_tag('iheartvideo-feature.png') %>
-              <span  class="type-small">comp-name-frame-name.ext</span>
-            </div>
-            </li>
+            <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
+              <div class="l-tile-content">
+                <div class="pg-export-preview-comp-wrap">
+                  <div ng-style="exportCompStyle(export)">
+                    <img ng-src="{{export.comp.image.original}}">
+                  </div>
+                  <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" ng-style="exportFrameStyle(export)" alt="">
+                </div>
 
-            <li class="l-tile-3">
-            <div class="l-tile-content">
-              <%= image_tag('iheart-feature.png') %>
-              <span  class="type-small">comp-name-frame-name.ext</span>
-            </div>
-            </li>
-
-            <li class="l-tile-3">
-            <div class="l-tile-content">
-              <%= image_tag('iheartvideo-feature.png') %>
-              <span  class="type-small">comp-name-frame-name.ext</span>
-            </div>
-            </li>
-
-            <li class="l-tile-3">
-            <div class="l-tile-content">
-              <%= image_tag('iheart-feature.png') %>
-              <span  class="type-small">comp-name-frame-name.ext</span>
-            </div>
+                <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>
+              </div>
             </li>
           </ul>
         </div>

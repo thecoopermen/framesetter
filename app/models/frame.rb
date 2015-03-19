@@ -6,18 +6,33 @@ class Frame < ActiveRecord::Base
     original_90: { convert_options: '-rotate 90' },
     original_180: { convert_options: '-rotate 180' },
     original_270: { convert_options: '-rotate 270' },
+
     preview_0: '550x400>',
     preview_90: { geometry: '550x400>', convert_options: '-rotate 90' },
     preview_180: { geometry: '550x400>', convert_options: '-rotate 180' },
     preview_270: { geometry: '550x400>', convert_options: '-rotate 270' },
+
+    thumbnail_0: '120x120>',
+    thumbnail_90: { geometry: '120x120>', convert_options: '-rotate 90' },
+    thumbnail_180: { geometry: '120x120>', convert_options: '-rotate 180' },
+    thumbnail_270: { geometry: '120x120>', convert_options: '-rotate 270' },
+
     thumbnail: '64x64>'
   }
 
-  after_post_process :copy_coordinates
+  after_commit :copy_coordinates, if: :copy_required?
 
   validates_attachment :image, content_type: { content_type: ['image/png'] }
 
 private
+
+  def copy_required?
+    [ :original, :preview, :thumbnail ].any? do |base|
+      [ :left, :top, :width, :height ].any? do |attr|
+        previous_changes.keys.include?("#{base}_0_#{attr}")
+      end
+    end
+  end
 
   def copy_coordinates
     image.styles.keys.each do |style|
@@ -28,6 +43,7 @@ private
         copy_270_degrees(base)
       end
     end
+    save!
   end
 
   def copy_90_degrees(base)

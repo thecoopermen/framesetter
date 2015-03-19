@@ -4,7 +4,7 @@ json.framesets @framesets do |frameset|
 
   json.frames frameset.frames do |frame|
     json.(frame, :name, :created_at, :updated_at)
-    json.images [ :original, :preview ].inject({}) { |hash, style|
+    json.images [ :original, :preview, :thumbnail ].inject({}) { |hash, style|
       hash.merge(
         style => [ 0, 90, 180, 270 ].inject({}) { |hash, rotation|
           hash.merge(
