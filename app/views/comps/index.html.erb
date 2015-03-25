@@ -1,23 +1,24 @@
 <div class="mod-notify">
 </div>
-<div ng-controller="CompsController">
-  <header class="s-page-header">
-    <h2 class="pos-left">Your Comps</h2>
+<div class="l-wrap">
+  <div ng-controller="CompsController">
+    <header class="s-page-header">
+      <h2 class="pos-left">Your Comps</h2>
 
-    <ul class="ui-btn-set-right pos-right">
-      <li>
+      <ul class="ui-btn-set-right pos-right">
+        <li>
         <a class="ui-btn ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
-      </li>
+        </li>
 
-      <li>
+        <li>
         <%= link_to 'Get Framing', '#', class: 'ui-btn', :'ng-class' => '{disabled: !readyToExport()}', :'ng-click' => 'export($event)' %>
-      </li>
-    </ul>
-  </header>
+        </li>
+      </ul>
+    </header>
 
-  <div>
-    <ul class="mod-comps">
-      <li class="mod-comp" ng-cloak ng-repeat="comp in comps" ng-class="{disabled: comp.uploading, active: comp.selected}" ng-click="comp.selected = !comp.uploading && !comp.selected">
+    <div>
+      <ul class="mod-comps">
+        <li class="mod-comp" ng-cloak ng-repeat="comp in comps" ng-class="{disabled: comp.uploading, active: comp.selected}" ng-click="comp.selected = !comp.uploading && !comp.selected">
         <div class="mod-comp-img-wrap">
           <img ng-src="{{comp.image.thumbnail}}" alt="">
           <div class="mod-comp-mask">
@@ -29,38 +30,39 @@
 
             <ul class="mod-comp-actions">
               <!--
-              <li>
-                <a><i class="icon-pencil"></i></a>
-              </li>
-              -->
+                <li>
+                  <a><i class="icon-pencil"></i></a>
+                </li>
+                -->
               <li ng-click="remove($event, comp)">
-                <a><i class="icon-cross"></i></a>
+              <a><i class="icon-cross"></i></a>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="mod-comp-info">
-          <h5 class="mod-comp-name">{{comp.name || '&nbsp;'}}</h5>
+          <span class="mod-comp-name type-small">{{comp.name || '&nbsp;'}}</span>
         </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
 
-    <%= form_for Comp.new, data: { file_upload: 'options' } do |f| %>
+      <%= form_for Comp.new, data: { file_upload: 'options' } do |f| %>
       <%= f.file_field :image, multiple: true, style: 'display: none;' %>
       <div class="ui-btn-set-left">
       </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <div class="mod-up-down" ng-cloak ng-show="inProgress()" ng-animate>
-    <ul>
-      <li class="mod-up-down-file" ng-repeat="file in queue | filter: {hidden: undefined}">
+    <div class="mod-up-down" ng-cloak ng-show="inProgress()" ng-animate>
+      <ul>
+        <li class="mod-up-down-file" ng-repeat="file in queue | filter: {hidden: undefined}">
         <div class="mod-up-down-file-name">{{file.name}}</div><div class="mod-up-down-progress" data-file-upload-progress="file.$progress()">
           <div class="mod-up-down-progress-filled" ng-style="{width: num + '%'}">
           </div>
         </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

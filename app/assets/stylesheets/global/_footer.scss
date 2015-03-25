@@ -2,8 +2,8 @@
   margin-top: $space*10;
   border-top: $border;
   float: left;
-  font-weight: bold;
   clear: both;
+  @include type-size(small);
 
   li {
     display: inline-block;

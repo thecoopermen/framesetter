@@ -16,7 +16,6 @@
       <%= link_to 'InFrame', root_path, class: 'g-header-logo' %>
       <nav class="g-header-nav">
         <ul>
-          <li><%= link_to 'Upload A Design', comps_path %></li>
           <li>
             <%= link_to 'Sign Up', signup_path %>
           </li>
@@ -41,9 +40,7 @@
     </div>
   </header>
 
-  <div class="l-wrap">
-    <%= yield %>
-  </div>
+  <%= yield %>
 
   <footer class="g-footer">
     <div class="l-wrap">

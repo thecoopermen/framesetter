@@ -1,16 +1,15 @@
 $space: 0.8rem;
 
-$g-header-height: $space*7;
+$g-header-height: 4.5rem;
 
 $l-width: 105rem;
-$l-min-width: 80rem;
-$l-gutter: $space*3;
-$color-primary: #4395cc;
+$l-gutter: $space*2;
+$color-primary: #5abe6d;
 $color-accent: #66be5a;
 $color-highlight: rgba($color-primary, 0.15);
 $color-link: $color-primary;
-$color-type: #290733;
-$color-type-light: #a1989d;
+$color-type: #333;
+$color-type-light: #777;
 $color-white: #fff;
 $color-grey-light: #f0ece6;
 $color-grey-light-med: #f6f3f0;
@@ -20,8 +19,9 @@ $color-grey-dark: #2b2a29;
 $color-border: #f0ece6;
 $color-border-light: #e6e2e4;
 $color-green: #66eb49;
+$color-header: #212121;
 
-$ui-border-radius: 0.5rem;
+$ui-border-radius: 0.2rem;
 
 $border-style: 0.1rem solid;
 $border: $border-style $color-border;
@@ -32,10 +32,10 @@ $type-font-family: "lft-etica", "museo-sans-rounded", "helvetica";
 $type-sizes: (
   xsmall: (9, 1.5),
   small:  (13, 1.5),
-  body:   (15, 1.55),
-  large:  (20,  1.2),
+  body:   (18, 1.55),
+  large:  (24,  1.2),
   xlarge: (32,  1.3),
-  huge:   (40, 1.1)
+  huge:   (45, 1.1)
 );
 
 $pg-new-comps-img-width: 20%;

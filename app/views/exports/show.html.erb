@@ -1,13 +1,14 @@
-<div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
-  <h2 class="s-page-header">Export Framed Comps</h2>
+<div class="l-wrap">
+  <div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
+    <h2 class="s-page-header">Export Framed Comps</h2>
     <div class="pg-export mod-white no-padding">
 
       <ul class="pg-export-comps" ng-cloak>
         <li class="pg-export-comp-wrap" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
-          <div class="pg-export-comp">
-            <img ng-src="{{comp.image.thumbnail}}" alt="">
-          </div>
-          <div class="type-small">{{comp.name}}</div>
+        <div class="pg-export-comp">
+          <img ng-src="{{comp.image.thumbnail}}" alt="">
+        </div>
+        <div class="type-small">{{comp.name}}</div>
         </li>
       </ul>
 
@@ -20,12 +21,12 @@
           <div class="mod-dropdown pg-export-frames-dropdown" ng-class="{active: showFramesets}">
             <ul>
               <li ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
-                <div ng-class="{'': frameset.selected}">
-                  <div class="mod-frame-set">
-                    <div class="mod-frame-set-img-wrap"><img ng-src="{{frameset.icon}}" alt=""></div>
-                    <div class="mod-frame-set-name">{{frameset.name}}</div>
-                  </div>
+              <div ng-class="{'': frameset.selected}">
+                <div class="mod-frame-set">
+                  <div class="mod-frame-set-img-wrap"><img ng-src="{{frameset.icon}}" alt=""></div>
+                  <div class="mod-frame-set-name">{{frameset.name}}</div>
                 </div>
+              </div>
               </li>
             </ul>
           </div>
@@ -33,10 +34,10 @@
 
         <ul>
           <li class="mod-frame-li pos-inline-block-y-center" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
-            <div class="mod-frame-li-img-wrap">
-              <img ng-src="{{frame.images.preview[0].image}}" alt="">
-            </div>
-            <span class="mod-frame-li-name">{{frame.name}}</span>
+          <div class="mod-frame-li-img-wrap">
+            <img ng-src="{{frame.images.preview[0].image}}" alt="">
+          </div>
+          <span class="mod-frame-li-name">{{frame.name}}</span>
           </li>
         </ul>
       </div>
@@ -93,4 +94,5 @@
         </div>
       </div>
     </div>
+  </div>
 </div>

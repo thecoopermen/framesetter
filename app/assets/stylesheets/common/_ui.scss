@@ -3,13 +3,13 @@
   border: 0;
   color: $color-white;
   display: inline-block;
-  @include type-size(small);
   font-weight: 700;
-  height: $space*4;
-  line-height: $space*4;
   padding: 0 1.25em;
   @include border-radius($ui-border-radius);
   text-align: center;
+  @include type-size(small);
+  height: $space*4;
+  line-height: $space*4;
 
   &:hover {
     background-color: darken($color-primary, 10);
@@ -18,14 +18,23 @@
 }
 
 .ui-btn-secondary {
-  background-color: $color-grey-med;
+  @extend .ui-btn;
+  background-color: $color-white;
+  color: $color-type;
+  border: $border-style #d9d9d9;
+  @include box-shadow(0 0.1rem 0.1rem rgba($color-black, 0.1));
+
+  &:hover {
+    background-color: $color-grey-light;
+    color: $color-type;
+  }
 }
 
 .ui-btn-large {
   @extend .ui-btn;
-  @include type-size(large);
-  height: $space*5;
-  line-height: $space*5;
+  @include type-size(body);
+  height: $space*6;
+  line-height: $space*6;
 }
 
 .ui-btn-set-right {

@@ -1,6 +1,6 @@
 .mod-white {
   background-color: $color-white;
-  @include border-radius($ui-border-radius);
+  @include border-radius($ui-border-radius*2);
   @include box-shadow(0 0.2rem 0.2rem rgba($color-black, 0.1));
   padding: $l-gutter;
   margin-bottom: $l-gutter;
