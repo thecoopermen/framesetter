@@ -1,0 +1,9 @@
+<p>Hi there, looks like your comps are ready for download!</p>
+
+<ul>
+  <% @export.renders.each do |r| %>
+    <li><%= link_to r.image.url, r.image.url %></li>
+  <% end %>
+</ul>
+
+- InFrame

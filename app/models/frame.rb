@@ -1,5 +1,6 @@
 class Frame < ActiveRecord::Base
   belongs_to :frameset
+  has_many :renders, dependent: :nullify
 
   has_attached_file :image, processors: [ :thumbnail, :transparency ], styles: {
     original_0: {},

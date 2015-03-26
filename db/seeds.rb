@@ -1,3 +1,4 @@
+Frameset.destroy_all
 Dir[File.join(File.dirname(__FILE__), 'frames', '**')].each do |dir|
   frameset = Frameset.where(name: File.basename(dir).titleize).first_or_create!
   puts "=> processing '#{frameset.name}'"

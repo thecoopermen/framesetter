@@ -5,20 +5,9 @@ class Paperclip::Transparency < Paperclip::Processor
 
     if attachment.instance.respond_to?(:"#{prefix}left") && options[:style].to_s.end_with?('_0')
       chunky = ChunkyPNG::Image.from_file(file.path)
-      chunky.height.times do |r|
-        chunky.row(r).each_with_index do |pixel, c|
-          if ChunkyPNG::Color.a(pixel) < 230
-            if area = find_area(c, r)
-              area[1] = [c, r]
-              area[2] += 1
-            else
-              areas << [[c, r], [c, r], 1]
-            end
-          end
-        end
-      end
+      pixelr = Pixelr.new(chunky)
 
-      biggest = areas.max_by { |area| area[2] }
+      biggest = pixelr.areas.max_by { |area| area[2] }
       attachment.instance.assign_attributes(
         :"#{prefix}full_width" => chunky.width,
         :"#{prefix}full_height" => chunky.height,
@@ -30,21 +19,5 @@ class Paperclip::Transparency < Paperclip::Processor
     end
 
     File.new(@file.path)
-  end
-
-private
-
-  def find_area(x, y)
-    areas.detect do |area|
-      area_includes(area, x - 1, y) || area_includes(area, x, y - 1)
-    end
-  end
-
-  def area_includes(area, x, y)
-    x >= area[0][0] && x <= area[1][0] && y >= area[0][1] && y <= area[1][1]
-  end
-
-  def areas
-    @areas ||= []
   end
 end

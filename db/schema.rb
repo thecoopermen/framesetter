@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319001548) do
+ActiveRecord::Schema.define(version: 20150319195431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150319001548) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "selections"
   end
 
   add_index "exports", ["user_id"], name: "index_exports_on_user_id", using: :btree
@@ -125,6 +126,24 @@ ActiveRecord::Schema.define(version: 20150319001548) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "renders", force: :cascade do |t|
+    t.integer  "export_id"
+    t.integer  "comp_id"
+    t.integer  "frame_id"
+    t.integer  "rotation"
+    t.integer  "offset"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "renders", ["comp_id"], name: "index_renders_on_comp_id", using: :btree
+  add_index "renders", ["export_id"], name: "index_renders_on_export_id", using: :btree
+  add_index "renders", ["frame_id"], name: "index_renders_on_frame_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -141,4 +160,7 @@ ActiveRecord::Schema.define(version: 20150319001548) do
   add_foreign_key "export_comps", "comps"
   add_foreign_key "export_comps", "exports"
   add_foreign_key "exports", "users"
+  add_foreign_key "renders", "comps"
+  add_foreign_key "renders", "exports"
+  add_foreign_key "renders", "frames"
 end

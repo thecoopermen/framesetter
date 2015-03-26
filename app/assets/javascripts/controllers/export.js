@@ -125,19 +125,39 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     });
   }
 
-  $scope.exportCompStyle = function(e) {
+  $scope.exportCompWrapperStyle = function(e) {
     return {
-      position: 'relative',
-      overflow: 'hidden',
       left: e.frame.images.thumbnail[e.rotation].left,
       top: e.frame.images.thumbnail[e.rotation].top,
       height: e.frame.images.thumbnail[e.rotation].height,
       width: e.frame.images.thumbnail[e.rotation].width,
+      overflow: 'hidden'
     };
   }
 
-  $scope.exportFrameStyle = function(e) {
+  $scope.exportCompStyle = function(e) {
+    var ratio = e.frame.images.thumbnail[e.rotation].width / e.frame.images.preview[e.rotation].width;
     return {
+      position: 'absolute',
+      maxWidth: '100%',
+      top: e.offset * ratio * -1
     };
+  }
+
+  $scope.generateComps = function($event) {
+    $event.preventDefault();
+    var selections = $scope.exports.map(function(e) {
+      var ratio = e.frame.images.original[e.rotation].width / e.frame.images.preview[e.rotation].width;
+      return {
+        frameId: e.frame.id,
+        compId: e.comp.id,
+        offset: e.offset * ratio,
+        rotation: e.rotation
+      };
+    });
+
+    $http.put(document.location.href, {export: {selections: JSON.stringify(selections)}}).then(function(response) {
+      document.location.href = '/comps';
+    });
   }
 });
