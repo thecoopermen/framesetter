@@ -11,7 +11,8 @@ $color-link: $color-primary;
 $color-type: #333;
 $color-type-light: #777;
 $color-white: #fff;
-$color-grey-light: #f0ece6;
+$color-beige: #f2f0ed;
+$color-grey-light: #e5e5e5;
 $color-grey-light-med: #f6f3f0;
 $color-grey-med: #998294;
 $color-black: #000;
@@ -21,9 +22,11 @@ $color-border-light: #e6e2e4;
 $color-green: #66eb49;
 $color-header: #212121;
 
-$ui-border-radius: 0.2rem;
+$ui-border-radius: 0.3rem;
 
-$border-style: 0.1rem solid;
+$border-thickness: 0.2rem;
+$border-style: $border-thickness solid;
+$border-style-thin: 0.1rem solid;
 $border: $border-style $color-border;
 $border-light: $border-style $color-border-light;
 
@@ -42,6 +45,6 @@ $pg-new-comps-img-width: 20%;
 
 $pg-export-frames-width: 22rem;
 $pg-export-comps-width: 22rem;
-$pg-export-preview-width: 55rem;
+$pg-export-preview-width: 40rem;
 
 $mod-frame-width: 15%;

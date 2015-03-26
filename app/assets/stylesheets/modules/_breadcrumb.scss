@@ -1,0 +1,8 @@
+.mod-breadcrumb {
+  @include type-size(small);
+  line-height: $g-header-height;
+
+  > * {
+    display: inline-block;
+  }
+}

@@ -1,85 +1,104 @@
 <div class="l-wrap">
   <div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
-    <h2 class="s-page-header">Export Framed Comps</h2>
-    <div class="pg-export mod-white no-padding">
+    <header class="mod-breadcrumb">
+      <a class="type-secondary">Your Comps</a><i class="icon-chevron-right"></i><span>Export Framed Comps</span>
+    </header>
 
-      <ul class="pg-export-comps" ng-cloak>
-        <li class="pg-export-comp-wrap" ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
-        <div class="pg-export-comp">
-          <img ng-src="{{comp.image.thumbnail}}" alt="">
-        </div>
-        <div class="type-small">{{comp.name}}</div>
-        </li>
-      </ul>
-
-      <div class="pg-export-frames">
-        <div class="mod-dropdown-click-trigger pg-export-frames-dropdown-wrap"  ng-click="toggleFramesetDropdown($event)" ng-cloak>
-          <span class="type-weight-bold">
-            {{selectedFrameset.name}}
-            <i class="icon-chevron-down mod-dropdown-arrow"></i>
-          </span>
-          <div class="mod-dropdown pg-export-frames-dropdown" ng-class="{active: showFramesets}">
-            <ul>
-              <li ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
-              <div ng-class="{'': frameset.selected}">
-                <div class="mod-frame-set">
-                  <div class="mod-frame-set-img-wrap"><img ng-src="{{frameset.icon}}" alt=""></div>
-                  <div class="mod-frame-set-name">{{frameset.name}}</div>
-                </div>
-              </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <ul>
-          <li class="mod-frame-li pos-inline-block-y-center" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
-          <div class="mod-frame-li-img-wrap">
-            <img ng-src="{{frame.images.preview[0].image}}" alt="">
-          </div>
-          <span class="mod-frame-li-name">{{frame.name}}</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
-        <h5 class="pg-export-preview-help-text pos-v-align-contents"><i class="icon-hand s1-right"></i><span>Drag your comp to choose its position</span></h5>
-        <button class="ui-btn pos-v-align-contents" ng-click="rotate($event)">
-          <i class="icon-cw"></i> Rotate
-        </button>
-        <div class="pg-export-preview">
-          <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
-            <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">
-          </div>
-
-          <div class="pg-export-preview-frame" ng-mousedown="startDrag($event)">
-            <img ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
-          </div>
-
-          <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
-          <a class="ui-btn" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
-        </div>
-
-
-        <div class="pg-export-framed-comps">
-          <h5>Framed Comps</h5>
-
-          <ul class="l-tile-wrap">
-            <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
-              <div class="l-tile-content">
-                <div class="pg-export-preview-frame">
-                  <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
-                    <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
-                  </div>
-                  <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
-                </div>
-
-                <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>
-              </div>
+    <div class="l-tile-wrap">
+      <div class="pg-export l-tile-4-of-20">
+        <div class="l-tile-content">
+          <ul class="pg-export-comps mod-beige" ng-cloak>
+            <h4 class="mod-title">Comps</h4>
+            <li class="mod-row " ng-repeat="comp in comps" ng-class="{'mod-highlighted': selectedComp == comp}" ng-click="selectComp(comp)">
+            <div class="pg-export-comp">
+              <img ng-src="{{comp.image.thumbnail}}" alt="">
+            </div>
+            <div class="type-small pg-export-comp-name">{{comp.name}}</div>
             </li>
           </ul>
         </div>
       </div>
+
+      <div class="pg-export-frames l-tile-4-of-20">
+        <div class="l-tile-content">
+          <div class="mod-beige">
+            <h4 class="mod-title">Frames</h4>
+            <div class="mod-dropdown-click-trigger pg-export-frames-dropdown-wrap"  ng-click="toggleFramesetDropdown($event)" ng-cloak>
+              <button class="ui-btn-secondary pos-stretch type-left">
+                {{selectedFrameset.name}}
+                <i class="icon-chevron-down mod-dropdown-arrow"></i>
+              </button>
+              <div class="mod-dropdown pg-export-frames-dropdown" ng-class="{active: showFramesets}">
+                <ul>
+                  <li ng-cloak ng-repeat="frameset in framesets" ng-click="selectFrameset(frameset)">
+                  <div ng-class="{'': frameset.selected}">
+                    <div class="mod-frame-set">
+                      <div class="mod-frame-set-img-wrap"><img ng-src="{{frameset.icon}}" alt=""></div>
+                      <div class="mod-frame-set-name">{{frameset.name}}</div>
+                    </div>
+                  </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <ul>
+              <li class="mod-row pos-inline-block-y-center" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
+              <div class="mod-frame-li-img-wrap">
+                <img ng-src="{{frame.images.preview[0].image}}" alt="">
+              </div>
+              <span class="mod-frame-li-name type-small">{{frame.name}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-tile-3-of-5 no-clear">
+        <div class="l-tile-content">
+          <div class="mod-white">
+            <h4 class="mod-title">Preview</h4>
+            <p class="type-small type-secondary"><i class="icon-hand s1-right"></i><span>Drag your comp to choose its position</span></p>
+            <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
+              <button class="ui-btn-secondary pos-v-align-contents" ng-click="rotate($event)">
+                <i class="icon-cw"></i> Rotate
+              </button>
+              <div class="pg-export-preview">
+                <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
+                  <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">
+                </div>
+
+                <div class="pg-export-preview-frame" ng-mousedown="startDrag($event)">
+                  <img ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
+                </div>
+
+                <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
+                <a class="ui-btn-secondary" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
+              </div>
+
+              <div class="pg-export-framed-comps">
+                <h5>Framed Comps</h5>
+
+                <ul class="l-tile-wrap">
+                  <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
+                    <div class="l-tile-content">
+                      <div class="pg-export-preview-frame">
+                        <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
+                          <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
+                        </div>
+                        <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
+                      </div>
+
+                      <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 </div>

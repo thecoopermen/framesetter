@@ -29,6 +29,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.25em;
+  font-weight: normal;
 }
 
 h1,
@@ -42,9 +43,12 @@ h2
   @include type-size(xlarge);
 }
 
-h4,
+h3,
 .type-large {
   @include type-size(large);
+}
+
+h4 {
 }
 
 h5 {
@@ -73,6 +77,10 @@ b, strong {
 
 .type-secondary {
   color: $color-type-light
+}
+
+.type-left {
+  text-align: left !important;
 }
 
 .type-large {

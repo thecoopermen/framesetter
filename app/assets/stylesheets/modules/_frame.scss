@@ -6,15 +6,6 @@
   margin-top: $space;
 }
 
-.mod-frame-li {
-  padding: $space $space*2;
-  @include clearfix();
-
-  &:last-child {
-    border-bottom: 0;
-  }
-}
-
 .mod-frame-li-img-wrap {
   text-align: left;
   width: $mod-frame-width;
@@ -33,6 +24,7 @@
   padding-left: $space*2;
   width: 100% - $mod-frame-width;
   line-height: 1.2em;
+  @include ellipsis;
 }
 
 

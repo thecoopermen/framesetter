@@ -1,9 +1,14 @@
 .mod-white {
   background-color: $color-white;
-  @include border-radius($ui-border-radius*2);
-  @include box-shadow(0 0.2rem 0.2rem rgba($color-black, 0.1));
+  @include border-radius($ui-border-radius*3);
+  @include box-shadow(0 0.2rem 0.2rem rgba($color-black, 0.15));
   padding: $l-gutter;
   margin-bottom: $l-gutter;
+}
+
+.mod-beige {
+  @extend .mod-white;
+  background-color: $color-beige;
 }
 
 .mod-white-sidebar {
@@ -27,6 +32,24 @@
 }
 
 .mod-highlighted {
-  background-color: $color-highlight;
+  background-color: $color-white;
+  border-bottom: $border-style $color-accent !important;
+}
+
+.mod-title {
+  margin-top: -#{$space};
+  margin-bottom: $space;
+}
+
+.mod-row {
+  margin: 0 -#{$l-gutter};
+  padding: $space*1.5 $l-gutter;
+  @include clearfix();
+  border-bottom: $border-style $color-grey-light;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-white;
+  }
 }
 
