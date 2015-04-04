@@ -1,7 +1,9 @@
 <div class="l-wrap">
   <div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
     <header class="mod-breadcrumb">
-      <a class="type-secondary">Your Comps</a><i class="icon-chevron-right"></i><span>Export Framed Comps</span>
+      <%= link_to 'Your Comps', comps_path, class: 'type-secondary'%><i class="icon-chevron-right"></i><span>Export Framed Comps</span>
+
+    
     </header>
 
     <div class="l-tile-wrap">

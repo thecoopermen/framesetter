@@ -32,5 +32,8 @@
 }
 
 .mod-dropdown-arrow {
-  float: right;
+  position: absolute;
+  right: $space;
+  top: 50%;
+  margin-top: -0.5em;
 }
