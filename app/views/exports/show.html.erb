@@ -77,29 +77,32 @@
                 <div class="pg-export-preview-frame" ng-mousedown="startDrag($event)">
                   <img ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
                 </div>
-
-                <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
-                <a class="ui-btn-secondary" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
               </div>
 
-              <div class="pg-export-framed-comps">
-                <h5>Framed Comps</h5>
+            </div>
 
-                <ul class="l-tile-wrap">
-                  <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
-                    <div class="l-tile-content">
-                      <div class="pg-export-preview-frame">
-                        <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
-                          <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
-                        </div>
-                        <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
+            <div>
+              <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
+              <a class="ui-btn-secondary" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
+            </div>
+
+            <div class="pg-export-framed-comps">
+              <h5>Framed Comps</h5>
+
+              <ul class="l-tile-wrap">
+                <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
+                  <div class="l-tile-content">
+                    <div class="pg-export-preview-frame">
+                      <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
+                        <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
                       </div>
-
-                      <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>
+                      <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
                     </div>
-                  </li>
-                </ul>
-              </div>
+
+                    <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
