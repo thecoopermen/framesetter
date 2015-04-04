@@ -18,7 +18,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'compass-rails', '~> 2.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'capistrano-rails', group: :development
