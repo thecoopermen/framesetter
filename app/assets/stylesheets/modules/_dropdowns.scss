@@ -19,6 +19,7 @@
   line-height: normal;
   min-width: 100%;
   left: 0;
+  @include box-shadow(0 0.1rem 0.2rem rgba($color-black, 0.2));
 
   &.active {
     display: block;
@@ -36,4 +37,17 @@
   right: $space;
   top: 50%;
   margin-top: -0.5em;
+}
+
+.mod-dropdown-row {
+  border-bottom: $border-thin;
+  padding: $space $space*2;
+
+  &:hover {
+    background-color: $color-grey-light-med;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }

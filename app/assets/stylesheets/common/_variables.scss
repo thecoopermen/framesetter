@@ -14,7 +14,7 @@ $color-white: #fff;
 $color-beige: #f2f0ed;
 $color-grey-light: #e5e5e5;
 $color-grey-light-med: #f6f3f0;
-$color-grey-med: #998294;
+$color-grey-med: #ccc;
 $color-black: #000;
 $color-grey-dark: #2b2a29;
 $color-border: #f0ece6;
@@ -24,11 +24,12 @@ $color-header: #212121;
 
 $ui-border-radius: 0.3rem;
 
-$border-thickness: 0.2rem;
+$border-thickness: 0.1rem;
 $border-style: $border-thickness solid;
 $border-style-thin: 0.1rem solid;
 $border: $border-style $color-border;
 $border-light: $border-style $color-border-light;
+$border-thin: $border-style-thin $color-border;
 
 $type-base-font-size: 10;
 $type-font-family: "lft-etica", "museo-sans-rounded", "helvetica";

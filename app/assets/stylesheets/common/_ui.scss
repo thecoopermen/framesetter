@@ -11,6 +11,15 @@
   height: 3.5rem;
   line-height: 3.5rem;
 
+  &.disabled {
+    background-color: $color-grey-med;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $color-grey-med;
+    }
+  }
+
   &:hover {
     background-color: darken($color-primary, 10);
     color: $color-white;
