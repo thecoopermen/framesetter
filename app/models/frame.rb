@@ -8,17 +8,17 @@ class Frame < ActiveRecord::Base
     original_180: { convert_options: '-rotate 180' },
     original_270: { convert_options: '-rotate 270' },
 
-    preview_0: '550x400>',
-    preview_90: { geometry: '550x400>', convert_options: '-rotate 90' },
-    preview_180: { geometry: '550x400>', convert_options: '-rotate 180' },
-    preview_270: { geometry: '550x400>', convert_options: '-rotate 270' },
+    preview_0: '550x400',
+    preview_90: { geometry: '550x400', convert_options: '-rotate 90' },
+    preview_180: { geometry: '550x400', convert_options: '-rotate 180' },
+    preview_270: { geometry: '550x400', convert_options: '-rotate 270' },
 
-    thumbnail_0: '120x120>',
-    thumbnail_90: { geometry: '120x120>', convert_options: '-rotate 90' },
-    thumbnail_180: { geometry: '120x120>', convert_options: '-rotate 180' },
-    thumbnail_270: { geometry: '120x120>', convert_options: '-rotate 270' },
+    thumbnail_0: '120x120',
+    thumbnail_90: { geometry: '120x120', convert_options: '-rotate 90' },
+    thumbnail_180: { geometry: '120x120', convert_options: '-rotate 180' },
+    thumbnail_270: { geometry: '120x120', convert_options: '-rotate 270' },
 
-    thumbnail: '64x64>'
+    thumbnail: '64x64'
   }
 
   after_commit :copy_coordinates, if: :copy_required?
