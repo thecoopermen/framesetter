@@ -21,11 +21,28 @@ class Frame < ActiveRecord::Base
     thumbnail: '64x64'
   }
 
+  before_save :extract_scales
   after_commit :copy_coordinates, if: :copy_required?
 
   validates_attachment :image, content_type: { content_type: ['image/png'] }
 
 private
+
+  def extract_scales
+    return unless image?
+
+    [ :preview ].each do |style|
+      [ 0, 90, 180, 270 ].each do |rotation|
+        original = image.queued_for_write[:"original_#{rotation}"]
+        scaled = image.queued_for_write[:"#{style}_#{rotation}"]
+        unless original.nil? || scaled.nil?
+          original_geometry = Paperclip::Geometry.from_file(original)
+          scaled_geometry = Paperclip::Geometry.from_file(scaled)
+          write_attribute(:"#{style}_#{rotation}_scale", scaled_geometry.width.to_f / original_geometry.width.to_f)
+        end
+      end
+    end
+  end
 
   def copy_required?
     [ :original, :preview, :thumbnail ].any? do |base|
@@ -48,10 +65,12 @@ private
   end
 
   def copy_90_degrees(base)
-    write_attribute(:"#{base}_90_left", attributes["#{base}_0_full_height"] - attributes["#{base}_0_height"] - attributes["#{base}_0_top"])
-    write_attribute(:"#{base}_90_top", attributes["#{base}_0_left"])
-    write_attribute(:"#{base}_90_width", attributes["#{base}_0_height"])
-    write_attribute(:"#{base}_90_height", attributes["#{base}_0_width"])
+    scale_factor = read_attribute(:"#{base}_90_scale") / read_attribute(:"#{base}_0_scale") rescue 1.0
+
+    write_attribute(:"#{base}_90_left", scale_factor * (attributes["#{base}_0_full_height"] - attributes["#{base}_0_height"] - attributes["#{base}_0_top"]))
+    write_attribute(:"#{base}_90_top", scale_factor * attributes["#{base}_0_left"])
+    write_attribute(:"#{base}_90_width", scale_factor * attributes["#{base}_0_height"])
+    write_attribute(:"#{base}_90_height", scale_factor * attributes["#{base}_0_width"])
   end
 
   def copy_180_degrees(base)
@@ -62,9 +81,11 @@ private
   end
 
   def copy_270_degrees(base)
-    write_attribute(:"#{base}_270_left", attributes["#{base}_0_top"])
-    write_attribute(:"#{base}_270_top", attributes["#{base}_0_full_width"] - attributes["#{base}_0_width"] - attributes["#{base}_0_left"])
-    write_attribute(:"#{base}_270_width", attributes["#{base}_0_height"])
-    write_attribute(:"#{base}_270_height", attributes["#{base}_0_width"])
+    scale_factor = read_attribute(:"#{base}_270_scale") / read_attribute(:"#{base}_0_scale") rescue 1.0
+
+    write_attribute(:"#{base}_270_left", scale_factor * attributes["#{base}_0_top"])
+    write_attribute(:"#{base}_270_top", scale_factor * (attributes["#{base}_0_full_width"] - attributes["#{base}_0_width"] - attributes["#{base}_0_left"]))
+    write_attribute(:"#{base}_270_width", scale_factor * attributes["#{base}_0_height"])
+    write_attribute(:"#{base}_270_height", scale_factor * attributes["#{base}_0_width"])
   end
 end

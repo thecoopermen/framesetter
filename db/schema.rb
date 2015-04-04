@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319195431) do
+ActiveRecord::Schema.define(version: 20150404220646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20150319195431) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "frameset_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "top"
     t.integer  "left"
     t.integer  "width"
@@ -114,6 +114,10 @@ ActiveRecord::Schema.define(version: 20150319195431) do
     t.integer  "thumbnail_270_height"
     t.integer  "thumbnail_0_full_width"
     t.integer  "thumbnail_0_full_height"
+    t.float    "preview_0_scale",         default: 1.0
+    t.float    "preview_90_scale",        default: 1.0
+    t.float    "preview_180_scale",       default: 1.0
+    t.float    "preview_270_scale",       default: 1.0
   end
 
   create_table "framesets", force: :cascade do |t|
