@@ -17,32 +17,34 @@
     </header>
 
     <div>
-      <ul class="mod-comps">
-        <li class="mod-comp" ng-cloak ng-repeat="comp in comps" ng-class="{disabled: comp.uploading, active: comp.selected}" ng-click="comp.selected = !comp.uploading && !comp.selected">
-        <div class="mod-comp-img-wrap">
-          <img ng-src="{{comp.image.thumbnail}}" alt="">
-          <div class="mod-comp-mask">
-            <div class="mod-comp-check-wrap">
-              <div class="mod-comp-check">
-                <i class="icon-check"></i>
+      <ul class="mod-comps l-tile-wrap">
+        <li class="mod-comp l-tile-5" ng-cloak ng-repeat="comp in comps" ng-class="{disabled: comp.uploading, active: comp.selected}" ng-click="comp.selected = !comp.uploading && !comp.selected">
+        <div class="l-tile-content mod-white no-padding">
+          <div class="mod-comp-img-wrap">
+            <img ng-src="{{comp.image.thumbnail}}" alt="">
+            <div class="mod-comp-mask">
+              <div class="mod-comp-check-wrap">
+                <div class="mod-comp-check">
+                  <i class="icon-check"></i>
+                </div>
               </div>
-            </div>
 
-            <ul class="mod-comp-actions">
-              <!--
-                <li>
-                  <a><i class="icon-pencil"></i></a>
+              <ul class="mod-comp-actions">
+                <!--
+                    <li>
+                      <a><i class="icon-pencil"></i></a>
+                    </li>
+                    -->
+                <li ng-click="remove($event, comp)">
+                <a><i class="icon-cross"></i></a>
                 </li>
-                -->
-              <li ng-click="remove($event, comp)">
-              <a><i class="icon-cross"></i></a>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div class="mod-comp-info">
-          <span class="mod-comp-name type-small">{{comp.name || '&nbsp;'}}</span>
+          <div class="mod-comp-info">
+            <span class="mod-comp-name type-small">{{comp.name || '&nbsp;'}}</span>
+          </div>
         </div>
         </li>
       </ul>
