@@ -13,7 +13,11 @@
 
   <header class="g-header">
     <div class="l-wrap type-on-dark">
-      <%= link_to 'InFrame', root_path, class: 'g-header-logo' %>
+      <% if logged_in? && current_user.email.present? %>
+        <%= link_to 'InFrame', comps_path, class: 'g-header-logo' %>
+      <% else %>
+        <%= link_to 'InFrame', root_path, class: 'g-header-logo' %>
+      <% end %>
       <nav class="g-header-nav">
         <ul>
           <li>
