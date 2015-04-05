@@ -102,10 +102,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     var maxScroll = ($scope.scaledHeight - $scope.selectedFrame.images.preview[$scope.rotation].height) * -1,
         newTop = ($scope.offset + dragOffset) * -1;
 
-    return {
-      position: 'relative',
-      top: Math.max(maxScroll, Math.min(0, newTop))
-    };
+    return { top: Math.max(maxScroll, Math.min(0, newTop)) };
   }
 
   $scope.toggleFramesetDropdown = function($event) {
