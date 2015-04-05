@@ -29,6 +29,7 @@
   width: $pg-export-preview-width;
   height: $pg-export-preview-height;
   margin: 0 auto;
+  margin-bottom: $space*4;
 }
 
 .pg-export-preview-help-text {
@@ -62,6 +63,15 @@
   position: absolute;
   top: 0;
   overflow: hidden;
+
+  img {
+    max-width: 100%;
+    position: relative;
+  }
+}
+
+.pg-export-preview-frame {
+  position: relative;
 }
 
 .pg-export-framed-comps {

@@ -82,9 +82,8 @@
 
             </div>
 
-            <div>
-              <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
-              <a class="ui-btn-secondary" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
+            <div class="type-center ui-btn-set-center">
+              <a class="ui-btn" ng-click="addExport($event)">Add To Set</a><a class="ui-btn-secondary" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
             </div>
 
             <div class="pg-export-framed-comps">
@@ -97,7 +96,7 @@
                       <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
                         <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
                       </div>
-                      <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
+                      <img class="pg-export-preview-frame" ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
                     </div>
 
                     <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>

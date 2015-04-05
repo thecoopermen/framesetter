@@ -63,6 +63,12 @@
   }
 }
 
+.ui-btn-set-center {
+  > * {
+    margin: 0 $space;
+  }
+}
+
 .ui-btn-stroked {
   @extend .ui-btn;
   background-color: transparent;

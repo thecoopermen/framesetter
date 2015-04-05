@@ -83,6 +83,10 @@ b, strong {
   text-align: left !important;
 }
 
+.type-center {
+  text-align: center !important;
+}
+
 .type-large {
   @include type-size(large);
 }

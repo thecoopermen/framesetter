@@ -4,22 +4,24 @@
 
 .mod-frame-li-img-wrap {
   text-align: left;
-  width: $mod-frame-width;
   float: left;
   display: inline-block;
   vertical-align: middle;
+  @include dim($mod-frame-size);
+  background-color: #aaa;
+  padding: 0.5rem;
 
   img {
     display: block;
+    margin: 0 auto;
   }
 }
 
 .mod-frame-li-name {
   display: block;
   float: left;
-  padding-left: $space*2;
-  width: 100% - $mod-frame-width;
-  line-height: 1.2em;
+  padding-left: $mod-frame-size + $space*2;
+  line-height: $mod-frame-size;
   @include ellipsis;
 }
 
