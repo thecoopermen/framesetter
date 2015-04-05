@@ -56,23 +56,23 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   }
 
   $scope.startDrag = function($event) {
+    $event.preventDefault();
     if ($event.button == 0) {
-      $event.preventDefault();
       $scope.dragging = true;
       $scope.dragStart = $scope.dragEnd = [$event.pageX,$event.pageY];
     }
   }
 
   $scope.drag = function($event) {
+    $event.preventDefault();
     if ($scope.dragging) {
-      $event.preventDefault();
       $scope.dragEnd = [$event.pageX,$event.pageY];
     }
   }
 
   $scope.stopDrag = function($event) {
+    $event.preventDefault();
     if ($scope.dragging) {
-      $event.preventDefault();
       $scope.dragging = false;
       $scope.offset = Math.max(0, $scope.offset + ($scope.dragStart[1] - $scope.dragEnd[1]));
       $scope.dragStart = [0,0];
@@ -99,7 +99,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
       dragOffset = $scope.dragStart[1] - $scope.dragEnd[1];
     }
 
-    var maxScroll = ($scope.scaledHeight - $scope.selectedFrame.images.preview[$scope.rotation].height) * -1,
+    var maxScroll = Math.max(0, ($scope.scaledHeight - $scope.selectedFrame.images.preview[$scope.rotation].height)) * -1,
         newTop = ($scope.offset + dragOffset) * -1;
 
     return { top: Math.max(maxScroll, Math.min(0, newTop)) };
