@@ -15,7 +15,7 @@
             <div class="pg-export-comp">
               <img ng-src="{{comp.image.thumbnail}}" alt="">
             </div>
-            <div class="type-small pg-export-comp-name">{{comp.name}}</div>
+            <div class="type-small type-bold pg-export-comp-name">{{comp.name}}</div>
             </li>
           </ul>
         </div>
@@ -76,7 +76,7 @@
                     <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">
                   </div>
 
-                  <img ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
+                  <img class="pg-export-preview-frame" ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
                 </div>
               </div>
 
@@ -96,10 +96,10 @@
                       <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
                         <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
                       </div>
-                      <img class="pg-export-preview-frame" ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
+                      <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
                     </div>
 
-                    <span class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</span>
+                    <p class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</p>
                   </div>
                 </li>
               </ul>

@@ -8,8 +8,9 @@
   display: inline-block;
   vertical-align: middle;
   @include dim($mod-frame-size);
-  background-color: #aaa;
-  padding: 0.5rem;
+  background-color: #bbb;
+  padding: 0.6rem;
+  @include border-radius(50%);
 
   img {
     display: block;
@@ -19,8 +20,7 @@
 
 .mod-frame-li-name {
   display: block;
-  float: left;
-  padding-left: $mod-frame-size + $space*2;
+  padding-left: $space;
   line-height: $mod-frame-size;
   @include ellipsis;
 }
