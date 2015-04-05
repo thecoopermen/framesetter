@@ -92,14 +92,16 @@
               <ul class="l-tile-wrap">
                 <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
                   <div class="l-tile-content">
-                    <div class="pg-export-preview-frame">
-                      <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
-                        <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
+                    <div class="type-center">
+                      <div class="pg-export-preview-frame">
+                        <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
+                          <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
+                        </div>
+                        <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
                       </div>
-                      <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
                     </div>
 
-                    <p class="type-small">{{export.comp.name}}-{{export.frame.name}}.png</p>
+                    <p class="type-small type-center">{{export.comp.name}}-{{export.frame.name}}.png</p>
                   </div>
                 </li>
               </ul>
