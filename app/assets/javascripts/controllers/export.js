@@ -12,12 +12,12 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   $scope.dragging = false;
   $scope.dragStart = [0,0];
 
-  $http.get('/framesets').then(function(response) {
+  $http.get('/framesets.json').then(function(response) {
     $scope.framesets = response.data.framesets;
     if ($scope.framesets.length > 0) $scope.selectFrameset($scope.framesets[0]);
   });
 
-  $http.get(document.location.href).then(function(response) {
+  $http.get(document.location.href + '.json').then(function(response) {
     $scope.comps = response.data.comps;
     if ($scope.comps.length > 0) $scope.selectComp($scope.comps[0]);
   });

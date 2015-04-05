@@ -2,7 +2,7 @@ angular.module('app').controller('CompsController', function($scope, $element, $
   $scope.queue = []
   $scope.comps = []
 
-  $http.get('/comps').then(function(response) {
+  $http.get('/comps.json').then(function(response) {
     $scope.comps = response.data.comps;
   });
 
