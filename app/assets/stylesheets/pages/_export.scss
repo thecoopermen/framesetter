@@ -40,6 +40,7 @@
 .pg-export-preview {
   position: relative;
   width: $pg-export-preview-width;
+  text-align: center;
 }
 
 .pg-export-frames-dropdown-wrap,
@@ -50,6 +51,7 @@
 
 .pg-export-preview-frame {
   position: relative;
+  display: inline-block;
 
   img {
     max-width: none;

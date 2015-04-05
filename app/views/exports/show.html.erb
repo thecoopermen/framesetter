@@ -70,11 +70,12 @@
             </header>
             <div class="pg-export-preview-wrap" ng-cloak ng-show="selectedFrame && selectedComp">
               <div class="pg-export-preview">
-                <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
-                  <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">
-                </div>
 
                 <div class="pg-export-preview-frame" ng-mousedown="startDrag($event)">
+                  <div class="pg-export-preview-comp-wrap" ng-style="compWrapperStyle()">
+                    <img ng-src="{{selectedComp.image.original}}" alt="" ng-style="compStyle()">
+                  </div>
+
                   <img ng-src="{{selectedFrame.images.preview[rotation].image}}" alt="">
                 </div>
               </div>
