@@ -16,13 +16,6 @@
       opacity: 1;
     }
   }
-
-  &:hover {
-    .mod-comp-mask,
-    .mod-comp-actions {
-      opacity: 1;
-    }
-  }
 }
 
 .mod-comp-name {
@@ -43,7 +36,15 @@
 
   img {
     min-width: 100%;
-    min-height: 100%;
+  }
+}
+
+.mod-comp-actions-wrap {
+  &:hover {
+    .mod-comp-mask,
+    .mod-comp-actions {
+      opacity: 1;
+    }
   }
 }
 

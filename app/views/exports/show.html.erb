@@ -58,7 +58,7 @@
 
       <div class="l-tile-3-of-5 no-clear">
         <div class="l-tile-content">
-          <div class="mod-white">
+          <div class="mod-beige">
             <header class="pos-clearfix">
               <div class="pos-left">
                 <h4 class="mod-title">Preview</h4>
@@ -92,10 +92,18 @@
               <ul class="l-tile-wrap">
                 <li class="l-tile-3" ng-cloak ng-repeat="export in exports">
                   <div class="l-tile-content">
-                    <div class="type-center">
-                      <div class="pg-export-preview-frame">
+                    <div class="type-center mod-comp-actions-wrap">
+                      <div class="pg-export-preview-frame mod-comp-img-wrap">
                         <div class="pg-export-preview-comp-wrap" ng-style="exportCompWrapperStyle(export)">
                           <img ng-src="{{export.comp.image.original}}" ng-style="exportCompStyle(export)">
+
+                          <div class="mod-comp-mask">
+                            <ul class="mod-comp-actions">
+                              <li ng-click="remove($event, comp)">
+                                <a><i class="icon-cross"></i></a>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                         <img ng-src="{{export.frame.images.thumbnail[export.rotation].image}}" alt="">
                       </div>

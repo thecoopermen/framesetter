@@ -21,7 +21,6 @@
 }
 
 .pg-export-preview-wrap {
-  background-color: $color-white;
   @include border-top-right-radius($ui-border-radius);
   @include border-bottom-right-radius($ui-border-radius);
   // margin-left: $pg-export-frames-width + $pg-export-comps-width;
@@ -53,6 +52,7 @@
 .pg-export-preview-frame {
   position: relative;
   display: inline-block;
+  height: auto;
 
   img {
     max-width: none;
