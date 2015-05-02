@@ -143,6 +143,8 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
 
   $scope.generateComps = function($event) {
     $event.preventDefault();
+    if ($scope.exports.length == 0) return;
+
     var selections = $scope.exports.map(function(e) {
       var ratio = e.frame.images.original[e.rotation].width / e.frame.images.preview[e.rotation].width;
       return {

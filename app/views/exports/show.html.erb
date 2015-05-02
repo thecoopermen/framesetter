@@ -3,7 +3,7 @@
     <header class="mod-breadcrumb">
       <%= link_to 'Your Comps', comps_path, class: 'type-secondary'%><i class="icon-chevron-right"></i><span>Export Framed Comps</span>
 
-    
+
     </header>
 
     <div class="l-tile-wrap">
@@ -83,10 +83,13 @@
             </div>
 
             <div class="type-center ui-btn-set-center">
-              <a class="ui-btn" ng-click="addExport($event)">Add To Set</a><a class="ui-btn-secondary" ng-click="generateComps($event)">Download {{exports.length}} Framed Comps</a>
+              <a class="ui-btn" ng-click="addExport($event)">Add To Set</a>
+              <a class="ui-btn-secondary" ng-class="{disabled: exports.length == 0}" ng-click="generateComps($event)" ng-cloak>
+                Download {{exports.length || ''}} Framed Comps
+              </a>
             </div>
 
-            <div class="pg-export-framed-comps">
+            <div class="pg-export-framed-comps" ng-show="exports.length > 0" ng-cloak>
               <h5>Framed Comps</h5>
 
               <ul class="l-tile-wrap">
