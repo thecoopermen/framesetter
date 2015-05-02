@@ -14,6 +14,7 @@ json.framesets @framesets do |frameset|
               left: frame.send(:"#{style}_#{rotation}_left") || 0,
               width: frame.send(:"#{style}_#{rotation}_width") || 0,
               height: frame.send(:"#{style}_#{rotation}_height") || 0,
+              scale: (frame.send(:"#{style}_#{rotation}_scale") rescue 1.0) || 1.0
             }
           )
         }

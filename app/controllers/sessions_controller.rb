@@ -3,8 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.where(email: params[:email]).first
-    if user && user.authenticate(params[:password])
-      user.update_attribute(:auth_token, SecureRandom.hex)
+    if user.login!(params[:password])
       session[:auth_token] = user.auth_token
       redirect_to comps_path
     else

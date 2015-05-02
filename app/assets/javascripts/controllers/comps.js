@@ -49,7 +49,7 @@ angular.module('app').controller('CompsController', function($scope, $element, $
   $scope.$on('fileuploadadd', function($uploadScope, file) {
     var reader = new FileReader();
     reader.onloadend = function() {
-      var comp = {uploading: true, name: file.files[0].name, image: {thumbnail: reader.result}}
+      var comp = {uploading: true, name: file.files[0].name.replace(/\..*$/, ''), image: {thumbnail: reader.result}}
       file.files[0].comp = comp;
       $scope.comps.unshift(comp);
     }
