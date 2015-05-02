@@ -11,3 +11,6 @@
 
 # Ignore temp files
 *.DS_Store
+
+# Ignore rvm config
+.ruby-gemset

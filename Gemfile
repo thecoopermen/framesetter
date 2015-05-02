@@ -20,8 +20,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0'
 
-gem 'capistrano-rails', group: :development
-
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
@@ -31,3 +29,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
 end
 
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-passenger'
+end
