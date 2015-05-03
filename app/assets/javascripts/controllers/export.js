@@ -122,6 +122,12 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     });
   }
 
+  $scope.removeExport = function($event, exp) {
+    $event.preventDefault();
+    var index = $scope.exports.indexOf(exp);
+    $scope.exports.splice(index, 1);
+  }
+
   $scope.exportCompWrapperStyle = function(e) {
     return {
       left: e.frame.images.thumbnail[e.rotation].left,
