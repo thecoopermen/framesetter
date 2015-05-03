@@ -76,4 +76,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = {
+    storage: :fog,
+    fog_credentials: {
+      aws_access_key_id: Rails.application.secrets.aws_access_key_id,
+      aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
+      provider: 'AWS'
+    },
+    fog_directory: "inframe-production",
+    fog_host: "https://inframe-production.s3.amazonaws.com"
+  }
 end
