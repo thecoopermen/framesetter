@@ -13,33 +13,33 @@
   <header class="g-header">
     <div class="l-wrap type-on-dark">
       <% if logged_in? && current_user.email.present? %>
-        <%= link_to 'InFrame', comps_path, class: 'g-header-logo' %>
-      <% else %>
         <%= link_to 'InFrame', root_path, class: 'g-header-logo' %>
+        <nav class="g-header-nav">
+          <ul>
+            <li class="mod-dropdown-trigger g-header-user">
+              <%= image_tag(avatar_url, class: 'g-header-nav-avatar') %>
+              <i class="icon-chevron-down"></i>
+              <nav class="mod-dropdown">
+                <ul>
+                  <li><a href="">Edit Profile</a></li>
+                </ul>
+              </nav>
+            </li>
+          </ul>
+        </nav>
+      <% else %>
+        <%= link_to 'InFrame', comps_path, class: 'g-header-logo' %>
+        <nav class="g-header-nav">
+          <ul>
+            <li>
+              <%= link_to 'Sign Up', signup_path %>
+            </li>
+            <li>
+              <%= link_to 'Log In', login_path %>
+            </li>
+          </ul>
+        </nav>
       <% end %>
-      <nav class="g-header-nav">
-        <ul>
-          <li>
-            <%= link_to 'Sign Up', signup_path %>
-          </li>
-          <li>
-            <%= link_to 'Log In', login_path %>
-          </li>
-          <!--
-          <li class="mod-dropdown-trigger g-header-user">
-            <%= image_tag('headshot.png', class: 'g-header-nav-avatar') %>
-            <i class="icon-chevron-down"></i>
-            <nav class="mod-dropdown">
-              <ul>
-                <li>
-                <a href="">Edit Profile</a>
-                </li>
-              </ul>
-            </nav>
-          </li>
-          -->
-        </ul>
-      </nav>
     </div>
   </header>
 
