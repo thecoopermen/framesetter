@@ -2,6 +2,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   $scope.comps = [];
   $scope.framesets = [];
   $scope.exports = [];
+  $scope.showConfirmation = false;
   $scope.selectedFrameset = null;
   $scope.selectedComp = null;
   $scope.showFramesets = false;
@@ -32,6 +33,11 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
         $scope.scaledHeight = comp.height * ($scope.selectedFrame.images.preview[$scope.rotation].width / comp.width);
       };
     }
+  }
+
+  $scope.hideConfirmation = function($event) {
+    $event.preventDefault();
+    $scope.showConfirmation = false;
   }
 
   $scope.selectComp = function(comp) {
@@ -162,7 +168,8 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     });
 
     $http.put(document.location.href, {export: {selections: JSON.stringify(selections)}}).then(function(response) {
-      document.location.href = '/comps';
+      $scope.showConfirmation = true;
+      $scope.exports = [];
     });
   }
 });

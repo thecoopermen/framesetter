@@ -1,23 +1,25 @@
-<div class="mod-notify" style="display: none;">
-  message
-  <a class="mod-notify-close"><i class="icon-cross"></i></a>
-</div>
-
-<div class="mod-overlay-mask" style="display: none;">
-  <div class="mod-overlay">
-    <a class="mod-overlay-close"><i class="icon-cross"></i></a>
-    <h3 class="s4">We'll email you once your comps are ready to download.</h3>
-
-    <form class="type-left">
-      <label>Email</label>
-      <input type="text" class="pos-stretch" placeholder="email@example.com"/>
-      <input type="submit" class="ui-btn pos-stretch" value="Tell Me When They're Ready" />
-    </form>
+<div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
+  <div class="mod-notify" ng-cloak ng-show="showConfirmation">
+    We'll email you once your comps are ready to download.
+    <a class="mod-notify-close" ng-click="hideConfirmation($event)"><i class="icon-cross"></i></a>
   </div>
-</div>
 
-<div class="l-wrap">
-  <div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
+  <!--
+  <div class="mod-overlay-mask">
+    <div class="mod-overlay">
+      <a class="mod-overlay-close" ng-click="hideConfirmation($event)"><i class="icon-cross"></i></a>
+      <h3 class="s4">We'll email you once your comps are ready to download.</h3>
+
+      <form class="type-left">
+        <label>Email</label>
+        <input type="text" class="pos-stretch" placeholder="email@example.com"/>
+        <input type="submit" class="ui-btn pos-stretch" value="Tell Me When They're Ready" />
+      </form>
+    </div>
+  </div>
+  -->
+
+  <div class="l-wrap">
     <header class="mod-breadcrumb">
       <%= link_to 'Your Comps', comps_path, class: 'type-secondary'%><i class="icon-chevron-right"></i><span>Export Framed Comps</span>
 
