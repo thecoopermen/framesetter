@@ -4,26 +4,22 @@
     <a class="mod-notify-close" ng-click="hideConfirmation($event)"><i class="icon-cross"></i></a>
   </div>
 
-  <!--
-  <div class="mod-overlay-mask">
+  <div class="mod-overlay-mask" ng-cloak ng-show="collectEmail">
     <div class="mod-overlay">
-      <a class="mod-overlay-close" ng-click="hideConfirmation($event)"><i class="icon-cross"></i></a>
+      <a class="mod-overlay-close" ng-click="collectEmail = false"><i class="icon-cross"></i></a>
       <h3 class="s4">We'll email you once your comps are ready to download.</h3>
 
-      <form class="type-left">
+      <form class="type-left" name="form" novalidate>
         <label>Email</label>
-        <input type="text" class="pos-stretch" placeholder="email@example.com"/>
-        <input type="submit" class="ui-btn pos-stretch" value="Tell Me When They're Ready" />
+        <input type="email" name="email" class="pos-stretch" placeholder="email@example.com" ng-model="collectedEmail" required>
+        <input type="submit" class="ui-btn pos-stretch" ng-class="{disabled: form.email.$error.email || form.email.$error.required}" value="Tell Me When They're Ready" ng-click="emailCollected($event)">
       </form>
     </div>
   </div>
-  -->
 
   <div class="l-wrap">
     <header class="mod-breadcrumb">
       <%= link_to 'Your Comps', comps_path, class: 'type-secondary'%><i class="icon-chevron-right"></i><span>Export Framed Comps</span>
-
-
     </header>
 
     <div class="l-tile-wrap">

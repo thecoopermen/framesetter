@@ -3,6 +3,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
   $scope.framesets = [];
   $scope.exports = [];
   $scope.showConfirmation = false;
+  $scope.collectEmail = false;
   $scope.selectedFrameset = null;
   $scope.selectedComp = null;
   $scope.showFramesets = false;
@@ -153,10 +154,7 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
     };
   }
 
-  $scope.generateComps = function($event) {
-    $event.preventDefault();
-    if ($scope.exports.length == 0) return;
-
+  function doExport() {
     var selections = $scope.exports.map(function(e) {
       var ratio = e.frame.images.original[e.rotation].width / e.frame.images.preview[e.rotation].width;
       return {
@@ -167,9 +165,26 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
       };
     });
 
-    $http.put(document.location.href, {export: {selections: JSON.stringify(selections)}}).then(function(response) {
+    $http.put(document.location.href, {email: $scope.collectedEmail, export: {selections: JSON.stringify(selections)}}).then(function(response) {
+      $scope.collectEmail = false;
       $scope.showConfirmation = true;
       $scope.exports = [];
     });
+  }
+
+  $scope.emailCollected = function($event) {
+    doExport();
+  }
+
+  $scope.generateComps = function($event) {
+    $event.preventDefault();
+    if ($scope.exports.length == 0) return;
+
+    if (window.guestUser) {
+      $scope.collectEmail = true;
+      return;
+    }
+
+    doExport();
   }
 });

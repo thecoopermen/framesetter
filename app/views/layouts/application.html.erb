@@ -7,6 +7,8 @@
 
   <script src="//use.typekit.net/kmx6xsb.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
+
+  <script>window.guestUser = <%= current_user.guest? %>;</script>
 </head>
 <body ng-app="app">
 

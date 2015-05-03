@@ -12,6 +12,7 @@ class ExportsController < ApplicationController
   end
 
   def update
+    current_user.update_attribute(:email, params[:email]) if params[:email] && current_user.guest?
     current_user.exports.find(params[:id]).update_attributes(export_params)
     render nothing: true, status: 200
   end
