@@ -17,14 +17,19 @@ protected
   helper_method :current_user
 
   def logged_in?
-    !!current_user
+    !!(current_user && !current_user.guest?)
   end
   helper_method :logged_in?
 
 private
 
   def load_current_user
-    @current_user = session[:auth_token] && User.where(auth_token: session[:auth_token]).first
+    if session[:auth_token]
+      @current_user = User.where(auth_token: session[:auth_token]).first
+    else
+      @current_user = User.create!(guest: true, auth_token: SecureRandom.hex)
+      session[:auth_token] = @current_user.auth_token
+    end
   end
 
   def login_required

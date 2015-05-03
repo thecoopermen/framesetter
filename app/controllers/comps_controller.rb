@@ -1,7 +1,7 @@
 class CompsController < ApplicationController
 
   def index
-    @comps = Comp.order(created_at: :desc)
+    @comps = current_user.comps.order(created_at: :desc)
   end
 
   def new
@@ -9,11 +9,11 @@ class CompsController < ApplicationController
 
   def create
     image = params[:comp][:image].first
-    render status: 201, json: Comp.create(image: image, name: image.original_filename)
+    render status: 201, json: current_user.comps.create(image: image, name: image.original_filename)
   end
 
   def destroy
-    render nothing: true, status: (Comp.find(params[:id]).destroy ? 200 : 500)
+    render nothing: true, status: (current_user.comps.find(params[:id]).destroy ? 200 : 500)
   end
 
 private
