@@ -19,10 +19,10 @@
             <li class="mod-dropdown-trigger g-header-user">
               <%= image_tag(avatar_url, class: 'g-header-nav-avatar') %>
               <i class="icon-chevron-down"></i>
-              <nav class="mod-dropdown">
+              <nav class="mod-dropdown-right g-header-user-dropdown">
                 <ul>
-                  <li><%= link_to "Edit Profile", profile_path %></li>
-                  <li><%= link_to "Log Out", logout_path %></li>
+                  <li><%= link_to "Edit Profile", profile_path, class: 'mod-dropdown-row' %></li>
+                  <li><%= link_to "Log Out", logout_path, class: 'mod-dropdown-row' %></li>
                 </ul>
               </nav>
             </li>

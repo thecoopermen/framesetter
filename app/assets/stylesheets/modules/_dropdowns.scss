@@ -20,6 +20,12 @@
   min-width: 100%;
   left: 0;
   @include box-shadow(0 0.1rem 0.2rem rgba($color-black, 0.2));
+  background-color: $color-white;
+  color: $color-type;
+
+  a {
+    color: $color-type;
+  }
 
   &.active {
     display: block;
@@ -40,6 +46,7 @@
 }
 
 .mod-dropdown-row {
+  display: block;
   border-bottom: $border-thin;
   padding: $space $space*2;
 

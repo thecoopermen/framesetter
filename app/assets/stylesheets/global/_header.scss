@@ -12,7 +12,7 @@
   @include type-size(small);
   float: right;
 
-  ul > * {
+  > ul > * {
     line-height: $g-header-height;
     display: inline-block;
     vertical-align: middle;
@@ -21,7 +21,8 @@
 }
 
 .g-header-user {
-  > * {
+  > i,
+  > img {
     display: inline-block;
     vertical-align: middle;
   }
@@ -31,6 +32,10 @@
   @include dim($space*4);
   background-color: $color-white;
   @include border-radius($ui-border-radius);
+}
+
+.g-header-user-dropdown {
+  min-width: 15rem;
 }
 
 .g-sub-header-nav {
