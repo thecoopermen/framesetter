@@ -4,11 +4,13 @@
 .pg-home-hero {
   text-align: center;
   background-color: $color-header;
-  padding: $space*20 0;
+  padding: 4rem 0;
 }
 
 .pg-home-comps {
   padding: $space*5 0;
+  max-width: 65rem;
+  margin: 0 auto;
 }
 
 .pg-home-steps {

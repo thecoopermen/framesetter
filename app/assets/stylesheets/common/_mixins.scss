@@ -26,3 +26,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin ui-height($size) {
+  height: $size;
+  line-height: $size;
+}

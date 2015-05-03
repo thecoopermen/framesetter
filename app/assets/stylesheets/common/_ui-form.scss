@@ -6,11 +6,11 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-  padding: $space;
   background-color: $color-white;
   @include border-radius($ui-border-radius);
   border: $border;
   margin-bottom: $space*2;
+  @include ui-height(4rem);
 
   &:focus {
     outline: 0;

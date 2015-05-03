@@ -1,7 +1,7 @@
 .mod-white {
   background-color: $color-white;
   @include border-radius($mod-border-radius);
-  @include box-shadow(0 0.1rem 0.15rem rgba($color-black, 0.15));
+  // @include box-shadow(0 0.1rem 0.15rem rgba($color-black, 0.15));
   padding: $l-gutter;
   margin-bottom: $l-gutter;
 }

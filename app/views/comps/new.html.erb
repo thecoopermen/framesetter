@@ -5,8 +5,8 @@
     <%= form_for Comp.new, data: { file_upload: 'options' } do |f| %>
       <%= f.file_field :image, multiple: true, style: 'display: none;' %>
       <div class="ui-btn-set-left">
-        <a class="ui-btn-large ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
-        <%= link_to 'Get Framing!', export_path, class: 'ui-btn-large', :'ng-class' => '{disabled: !readyToExport()}', :'ng-click' => 'guardExport($event)' %>
+        <a class="ui-large ui-btn-secondary" ng-click="selectFiles($event)">Add Comps</a>
+        <%= link_to 'Get Framing!', export_path, class: 'ui-large ui-btn', :'ng-class' => '{disabled: !readyToExport()}', :'ng-click' => 'guardExport($event)' %>
       </div>
     <% end %>
   </div>
@@ -28,7 +28,7 @@
           </div>
 
           <div class="pg-new-comps-actions">
-            <button class="ui-btn-large ui-btn-secondary" ng-click="remove($event, file)">
+            <button class="ui-large ui-btn ui-btn-secondary" ng-click="remove($event, file)">
               <i class="icon-trash"></i>
             </button>
           </div>
