@@ -1,0 +1,24 @@
+.mod-notify {
+  @extend .mod-overlay;
+  position: fixed;
+  background-color: $color-white;
+  top: 2rem;
+  text-align: center;
+  @extend .mod-white;
+  padding-right: $space*4;
+  width: $mod-notify-width;
+  margin-left: -#{$mod-notify-width/2};
+  left: 50%;
+  z-index: 1000;
+
+  a {
+    display: inline;
+  }
+}
+
+.mod-notify-close {
+  position: absolute;
+  top: $space;
+  right: $space;
+  font-size: 2.5rem;
+}

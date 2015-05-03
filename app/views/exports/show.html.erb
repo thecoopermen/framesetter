@@ -1,3 +1,21 @@
+<div class="mod-notify" style="display: none;">
+  message
+  <a class="mod-notify-close"><i class="icon-cross"></i></a>
+</div>
+
+<div class="mod-overlay-mask" style="display: none;">
+  <div class="mod-overlay">
+    <a class="mod-overlay-close"><i class="icon-cross"></i></a>
+    <h3 class="s4">We'll email you once your comps are ready to download.</h3>
+
+    <form class="type-left">
+      <label>Email</label>
+      <input type="text" class="pos-stretch" placeholder="email@example.com"/>
+      <input type="submit" class="ui-btn pos-stretch" value="Tell Me When They're Ready" />
+    </form>
+  </div>
+</div>
+
 <div class="l-wrap">
   <div ng-controller="ExportController" ng-mousemove="drag($event)" ng-mouseup="stopDrag($event)">
     <header class="mod-breadcrumb">
@@ -45,7 +63,7 @@
             </div>
 
             <ul>
-              <li class="mod-row pos-inline-block-y-center" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
+              <li class="mod-row pos-children-center-y" ng-repeat="frame in selectedFrameset.frames" ng-cloak ng-click="selectFrame(frame)" ng-class="{'mod-highlighted': selectedFrame == frame}">
               <div class="mod-frame-li-img-wrap">
                 <img ng-src="{{frame.images.preview[0].image}}" alt="">
               </div>
@@ -90,7 +108,7 @@
             </div>
 
             <div class="pg-export-framed-comps" ng-show="exports.length > 0" ng-cloak>
-              <h5>Framed Comps</h5>
+              <h5 class="s2">Framed Comps</h5>
 
               <ul class="l-tile-wrap">
                 <li class="l-tile-3" ng-cloak ng-repeat="export in exports">

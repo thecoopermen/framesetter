@@ -1,0 +1,33 @@
+.mod-overlay-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  text-align: center;
+  @extend .pos-children-center-y;
+  background-color: rgba($color-black, 0.2);
+}
+
+.mod-overlay {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: $color-white;
+  text-align: center;
+  @extend .mod-white;
+  padding: $space*4;
+  width: $mod-notify-width;
+  position: relative;
+
+  a {
+    display: inline;
+  }
+}
+
+.mod-overlay-close {
+  position: absolute;
+  top: $space;
+  right: $space;
+  font-size: 2.5rem;
+}
