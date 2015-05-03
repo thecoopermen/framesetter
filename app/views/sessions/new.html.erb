@@ -1,14 +1,14 @@
 <div class="pg-auth-wrap mod-white">
-  <h1>Log In</h1>
+  <h2>Log In</h2>
   <%= form_tag login_path do %>
   <%= label_tag :email %>
-  <%= text_field_tag :email, params[:email] %>
+  <%= text_field_tag :email, params[:email], placeholder: 'example@email.com' %>
 
   <%= label_tag :password %>
   <%= password_field_tag :password, params[:password] %>
 
   <footer class="pg-auth-footer">
-    <button type="submit" class="ui-large ui-btn pos-stretch">Log in</button>
+    <button type="submit" class="ui-btn pos-stretch">Log in</button>
   </footer>
   <% end %>
 </div>

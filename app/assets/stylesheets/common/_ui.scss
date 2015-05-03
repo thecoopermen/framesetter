@@ -8,7 +8,7 @@
   @include border-radius($ui-border-radius);
   text-align: center;
   @include type-size(small);
-  @include ui-height(4rem);
+  @include ui-height(4.5rem);
 
   &.disabled {
     background-color: $color-grey-med;
@@ -38,11 +38,11 @@
   @extend .ui-btn;
   background-color: $color-white;
   color: $color-type;
-  border: $border-style-thin #d9d9d9;
+  border: $border-style-thin #e5e5e5;
   // @include box-shadow(0 0.1rem 0.1rem rgba($color-black, 0.1));
 
   &:hover {
-    background-color: $color-grey-light;
+    background-color: $color-grey-xlight;
     color: $color-type;
   }
 }

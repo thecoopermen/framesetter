@@ -29,7 +29,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.25em;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h1,
@@ -38,7 +38,7 @@ h1,
   margin-bottom: 2rem;
 }
 
-h2
+h2,
 .type-xlarge {
   @include type-size(xlarge);
 }

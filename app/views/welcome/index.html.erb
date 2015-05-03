@@ -1,14 +1,17 @@
-<div>
-  <div class="l-wrap type-center">
-    <div class="s8">
+<div class="pg-home-hero">
+  <div class="l-wrap">
+    <div class="s2">
+      <header class="s4">
+        <h1 class="s3">Quickly Present Designs in Devices</h1>
+        <h4 class="s4">Upload designs, choose your frames, position your design, download</h4>
+        <%= link_to 'Upload A Design', comps_path, class: 'ui-large ui-btn'%>
+      </header>
       <div class="pg-home-comps">
         <%= image_tag('hero.png') %>
       </div>
-      <h1 class="s2">Quickly Present Designs in Devices</h1>
-      <%= link_to 'Upload A Design', comps_path, class: 'ui-large ui-btn'%>
     </div>
 
-    <!--div class="pg-home-steps">
+    <div class="pg-home-steps">
       <ul class="l-tile-wrap">
         <li class="l-tile-4">
           <div class="l-tile-content">
@@ -47,7 +50,8 @@
           </div>
         </li>
       </ul>
-    </div-->
+      <%= link_to 'Upload A Design', comps_path, class: 'ui-large ui-btn'%>
+    </div>
   </div>
 
 </div>

@@ -11,6 +11,7 @@ input[type="email"] {
   border: $border;
   margin-bottom: $space*2;
   @include ui-height(4rem);
+  padding: 0 1rem;
 
   &:focus {
     outline: 0;

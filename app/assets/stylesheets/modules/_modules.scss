@@ -43,7 +43,7 @@
 
 .mod-row {
   margin: 0 -#{$l-gutter};
-  padding: $space $l-gutter/1.5;
+  padding: $space*1.5 $l-gutter;
   @include clearfix();
   border-bottom: $border;
   cursor: pointer;

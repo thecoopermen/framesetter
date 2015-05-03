@@ -8,9 +8,9 @@
   display: inline-block;
   vertical-align: middle;
   @include dim($mod-frame-size);
-  background-color: #bbb;
-  padding: 0.6rem;
+  background-color: rgba($color-black, 0.15);
   @include border-radius(50%);
+  padding: 0.6rem;
 
   img {
     display: block;
