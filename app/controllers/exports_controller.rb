@@ -4,15 +4,15 @@ class ExportsController < ApplicationController
   end
 
   def show
-    @export = Export.find(params[:id])
+    @export = current_user.exports.find(params[:id])
   end
 
   def create
-    @export = Export.create(export_params)
+    @export = current_user.exports.create(export_params)
   end
 
   def update
-    Export.find(params[:id]).update_attributes(export_params)
+    current_user.exports.find(params[:id]).update_attributes(export_params)
     render nothing: true, status: 200
   end
 
