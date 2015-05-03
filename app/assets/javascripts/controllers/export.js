@@ -1,4 +1,4 @@
-angular.module('app').controller('ExportController', function($scope, $http, $window) {
+angular.module('app').controller('ExportController', ['$scope', '$http', '$window', function($scope, $http, $window) {
   $scope.comps = [];
   $scope.framesets = [];
   $scope.exports = [];
@@ -187,4 +187,4 @@ angular.module('app').controller('ExportController', function($scope, $http, $wi
 
     doExport();
   }
-});
+}]);

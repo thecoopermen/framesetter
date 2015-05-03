@@ -15,7 +15,7 @@
 //= require_tree ./controllers
 //= require_tree ./directives
 
-angular.module('app', ['blueimp.fileupload', 'ngAnimate']).config(function($httpProvider) {
+angular.module('app', ['blueimp.fileupload', 'ngAnimate']).config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-Token';
   $httpProvider.defaults.headers.common['Accept'] = 'application/json';
-});
+}]);

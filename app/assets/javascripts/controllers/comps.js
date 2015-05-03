@@ -1,4 +1,4 @@
-angular.module('app').controller('CompsController', function($scope, $element, $http, $filter) {
+angular.module('app').controller('CompsController', ['$scope', '$element', '$http', '$filter', function($scope, $element, $http, $filter) {
   $scope.queue = []
   $scope.comps = []
 
@@ -62,4 +62,4 @@ angular.module('app').controller('CompsController', function($scope, $element, $
     upload.files[0].comp.id = upload.result.id;
     upload.files[0].result = upload.result;
   });
-});
+}]);
