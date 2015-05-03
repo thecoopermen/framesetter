@@ -32,5 +32,8 @@ end
 group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
-  gem 'capistrano-passenger'
+end
+
+group :production do
+  gem 'puma', '~> 2.11'
 end
